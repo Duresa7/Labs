@@ -69,12 +69,6 @@ repadmin /showrepl                            # replication state
 
 For the DR layer, ASR runs a **test failover** into an isolated Azure network. A test failover spins up the replicated machine in Azure without touching the running production server and without breaking ongoing replication, so it is safe to run on a schedule.
 
-> **Screenshot slot:** Recovery Services vault, Backup jobs blade showing completed system-state backups. Save to `evidence/screenshots/04-backup-jobs.png`.
-
-> **Screenshot slot:** ASR test failover completed, the recovery VM running in Azure. Save to `evidence/screenshots/04-asr-testfailover.png`.
-
-> **Screenshot slot:** `dcdiag /v` on the restored DC showing passing tests. Save to `evidence/screenshots/04-dcdiag.png`.
-
 ## What this proves
 
 A backup strategy that protects a domain controller the supported way (system state, not a file copy of `NTDS.dit`), a separate DR path that can stand the workload up in Azure even though it runs on an unsupported-by-default hypervisor, and a restore that was actually performed and checked with `dcdiag`. Recovery that has been tested, not assumed.

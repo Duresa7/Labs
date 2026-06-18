@@ -109,12 +109,6 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; Id=4740}
 Get-WinEvent -FilterHashtable @{LogName='Security'; Id=4769} -MaxEvents 50
 ```
 
-> **Screenshot slot:** BloodHound showing no path from a managed user to Domain Admins. Save to `evidence/screenshots/05-bloodhound.png`.
-
-> **Screenshot slot:** Event Viewer with the `4740` lockout events from the spray. Save to `evidence/screenshots/05-lockout-events.png`.
-
-> **Screenshot slot:** Responder returning nothing after the LLMNR fix. Save to `evidence/screenshots/05-responder-after.png`.
-
 ## What this proves
 
 A red-team pass run against my own domain, end to end: recon, poisoning, spray, Kerberoast, BloodHound, and credential dumping, each mapped to the control that stopped it or to the gap it exposed. The valuable part is the gaps. LLMNR poisoning and missing SMB signing were real, I found them by attacking the box rather than reading a checklist, and I closed them with GPOs and confirmed the fix by re-running the attack. That loop, attack to find it, defend to close it, verify it is closed, is the whole point of the lab.

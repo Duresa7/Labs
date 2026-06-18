@@ -71,7 +71,7 @@ flowchart TB
 ```
 docs/        five case-study chapters (start at 01)
 scripts/     the PowerShell that built and hardened the lab, by topic
-evidence/    sanitized GPO exports and screenshot slots
+evidence/    sanitized GPO exports
 diagrams/    Mermaid source for the diagrams used across the chapters
 ```
 

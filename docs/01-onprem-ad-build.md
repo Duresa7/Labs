@@ -96,10 +96,6 @@ repadmin /replsummary
 
 Expected result: `Get-ADForest` reports `ForestMode = Windows2025Forest` with both DCs listed as Global Catalogs, `netdom query fsmo` shows all five roles on `CORP-DC01.corp.local`, and `repadmin /replsummary` shows zero failures across the `CORP-DC01` to `CORP-DC02` pair.
 
-> **Screenshot slot:** `repadmin /replsummary` with a clean (zero-failure) result. Save to `evidence/screenshots/01-replsummary.png`.
-
-> **Screenshot slot:** Active Directory Users and Computers showing the OU tree. Save to `evidence/screenshots/01-ou-tree.png`.
-
 ## What this proves
 
 A working multi-DC forest with replication, Global Catalog and DNS on both controllers, FSMO roles placed and documented, and an OU model designed so that Group Policy applies by object placement. The privileged footprint is one account in its own OU. That is the base the next four chapters build on.

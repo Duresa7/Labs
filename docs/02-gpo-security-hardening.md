@@ -115,10 +115,6 @@ On a managed laptop, `chrome://policy` shows the allowlist and the two permitted
 
 The full per-GPO settings, extracted and sanitized from the live domain's GPO backups, are in [evidence/gpo-reports/](../evidence/gpo-reports/).
 
-> **Screenshot slot:** `chrome://policy` on a managed endpoint showing the allowlist and the two extensions. Save to `evidence/screenshots/02-chrome-policy.png`.
-
-> **Screenshot slot:** Group Policy Management Console showing `GPO-ManagedWorkstations-Security` settings. Save to `evidence/screenshots/02-gpmc-workstation.png`.
-
 ## What this proves
 
 Group Policy authored as a security tool, not a settings menu: credential-theft mitigations (LSA protection, no cached creds, WDigest off), application control with AppLocker in enforce mode, a default-deny browser model, device and network restrictions, and time-based access that holds even offline. Each control was verified on the endpoint and is backed by an exported report. This is the surface [chapter 05](05-attack-and-defend.md) attacks.

@@ -74,12 +74,6 @@ dsregcmd /status
 
 Script: [scripts/hybrid-identity/verify-synced-users-graph.ps1](../scripts/hybrid-identity/verify-synced-users-graph.ps1).
 
-> **Screenshot slot:** Entra admin center, Entra Connect / sync status showing "Last sync: less than 1 hour ago". Save to `evidence/screenshots/03-sync-status.png`.
-
-> **Screenshot slot:** Entra Users list showing `jack-user` with "Directory synced: Yes". Save to `evidence/screenshots/03-synced-user.png`.
-
-> **Screenshot slot:** `dsregcmd /status` on `LAPTOP-01` showing `AzureAdJoined : YES` and `DomainJoined : YES`. Save to `evidence/screenshots/03-dsregcmd.png`.
-
 ## What this proves
 
 Directory synchronization from on-prem AD to Entra ID with Password Hash Sync, Seamless SSO for silent cloud tokens on domain-joined machines, UPN planning to bridge a non-routable internal domain to a verified cloud domain, and hybrid Azure AD join. All of it on free-tier licensing, which is the constraint most home labs actually live under.
