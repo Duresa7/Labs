@@ -64,6 +64,7 @@ flowchart TB
 | [03 - Hybrid identity (Entra)](docs/03-hybrid-identity-entra.md) | Cloud identity | Entra Connect, Password Hash Sync, Seamless SSO, UPN planning, hybrid Azure AD join |
 | [04 - Backup & disaster recovery](docs/04-backup-and-disaster-recovery.md) | Resilience | Recovery Services vault, DC system-state backup, Azure Site Recovery, documented restore test |
 | [05 - Attack & defend](docs/05-attack-and-defend.md) | Offensive validation | Recon, poisoning, password spray, Kerberoasting, BloodHound, and mapping each result to the control that stops it |
+| [06 - Toolchain & walkthroughs](docs/06-toolchain.md) | Tooling | Step-by-step use of GPMC, PowerShell, Windows Admin Center/WinRM, OpenSSH, Entra Connect, Azure Backup, and the Kali toolset |
 
 ## Repository layout
 
