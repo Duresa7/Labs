@@ -10,13 +10,13 @@
   <ModifiedTime>2026-04-26T21:05:07</ModifiedTime>
   <ReadTime>2026-04-26T21:05:08.3682463Z</ReadTime>
   <SecurityDescriptor>
-    <SDDL xmlns="http://www.microsoft.com/GroupPolicy/Types/Security">O:DAG:DAD:PAI(OA;CI;CR;edacfd8f-ffb3-11d1-b41d-00a0c968f939;;S-1-5-21-1111111111-2222222222-3333333333-1106)(A;CI;LCRPRC;;;S-1-5-21-1111111111-2222222222-3333333333-1106)(A;CI;CCDCLCRPWPSDRCWDWO;;;DA)(A;CI;CCDCLCRPWPSDRCWDWO;;;S-1-5-21-1111111111-2222222222-3333333333-519)(A;CI;LCRPRC;;;AU)(A;CI;LCRPLORC;;;ED)(A;CI;CCDCLCSWRPWPDTLOSDRCWDWO;;;SY)(A;CIIO;CCDCLCSWRPWPDTLOSDRCWDWO;;;CO)S:AI(OU;CIIDSA;WPWD;;f30e3bc2-9ff0-11d1-b603-0000f80367c1;WD)(OU;CIIOIDSA;WP;f30e3bbe-9ff0-11d1-b603-0000f80367c1;bf967aa5-0de6-11d0-a285-00aa003049e2;WD)(OU;CIIOIDSA;WP;f30e3bbf-9ff0-11d1-b603-0000f80367c1;bf967aa5-0de6-11d0-a285-00aa003049e2;WD)</SDDL>
+    <SDDL xmlns="http://www.microsoft.com/GroupPolicy/Types/Security">O:DAG:DAD:PAI(OA;CI;CR;edacfd8f-ffb3-11d1-b41d-00a0c968f939;;DOMAIN-SID-REDACTED)(A;CI;LCRPRC;;;DOMAIN-SID-REDACTED)(A;CI;CCDCLCRPWPSDRCWDWO;;;DA)(A;CI;CCDCLCRPWPSDRCWDWO;;;DOMAIN-SID-REDACTED)(A;CI;LCRPRC;;;AU)(A;CI;LCRPLORC;;;ED)(A;CI;CCDCLCSWRPWPDTLOSDRCWDWO;;;SY)(A;CIIO;CCDCLCSWRPWPDTLOSDRCWDWO;;;CO)S:AI(OU;CIIDSA;WPWD;;f30e3bc2-9ff0-11d1-b603-0000f80367c1;WD)(OU;CIIOIDSA;WP;f30e3bbe-9ff0-11d1-b603-0000f80367c1;bf967aa5-0de6-11d0-a285-00aa003049e2;WD)(OU;CIIOIDSA;WP;f30e3bbf-9ff0-11d1-b603-0000f80367c1;bf967aa5-0de6-11d0-a285-00aa003049e2;WD)</SDDL>
     <Owner xmlns="http://www.microsoft.com/GroupPolicy/Types/Security">
-      <SID xmlns="http://www.microsoft.com/GroupPolicy/Types">S-1-5-21-1111111111-2222222222-3333333333-512</SID>
+      <SID xmlns="http://www.microsoft.com/GroupPolicy/Types">DOMAIN-SID-REDACTED</SID>
       <Name xmlns="http://www.microsoft.com/GroupPolicy/Types">CORP\Domain Admins</Name>
     </Owner>
     <Group xmlns="http://www.microsoft.com/GroupPolicy/Types/Security">
-      <SID xmlns="http://www.microsoft.com/GroupPolicy/Types">S-1-5-21-1111111111-2222222222-3333333333-512</SID>
+      <SID xmlns="http://www.microsoft.com/GroupPolicy/Types">DOMAIN-SID-REDACTED</SID>
       <Name xmlns="http://www.microsoft.com/GroupPolicy/Types">CORP\Domain Admins</Name>
     </Group>
     <PermissionsPresent xmlns="http://www.microsoft.com/GroupPolicy/Types/Security">true</PermissionsPresent>
@@ -24,7 +24,7 @@
       <InheritsFromParent>false</InheritsFromParent>
       <TrusteePermissions>
         <Trustee>
-          <SID xmlns="http://www.microsoft.com/GroupPolicy/Types">S-1-5-21-1111111111-2222222222-3333333333-512</SID>
+          <SID xmlns="http://www.microsoft.com/GroupPolicy/Types">DOMAIN-SID-REDACTED</SID>
           <Name xmlns="http://www.microsoft.com/GroupPolicy/Types">CORP\Domain Admins</Name>
         </Trustee>
         <Type xsi:type="PermissionType">
@@ -64,7 +64,7 @@
       </TrusteePermissions>
       <TrusteePermissions>
         <Trustee>
-          <SID xmlns="http://www.microsoft.com/GroupPolicy/Types">S-1-5-21-1111111111-2222222222-3333333333-519</SID>
+          <SID xmlns="http://www.microsoft.com/GroupPolicy/Types">DOMAIN-SID-REDACTED</SID>
           <Name xmlns="http://www.microsoft.com/GroupPolicy/Types">CORP\Enterprise Admins</Name>
         </Trustee>
         <Type xsi:type="PermissionType">
@@ -104,7 +104,7 @@
       </TrusteePermissions>
       <TrusteePermissions>
         <Trustee>
-          <SID xmlns="http://www.microsoft.com/GroupPolicy/Types">S-1-5-21-1111111111-2222222222-3333333333-1106</SID>
+          <SID xmlns="http://www.microsoft.com/GroupPolicy/Types">DOMAIN-SID-REDACTED</SID>
           <Name xmlns="http://www.microsoft.com/GroupPolicy/Types">CORP\GRP-ManagedUsers</Name>
         </Trustee>
         <Type xsi:type="PermissionType">
