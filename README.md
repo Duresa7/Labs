@@ -64,6 +64,7 @@ flowchart TB
 | [05 - Attack & defend](docs/05-attack-and-defend.md) | Offensive validation | Recon, poisoning, password spray, Kerberoasting, BloodHound, and mapping each result to the control that stops it |
 | [06 - Toolchain & walkthroughs](docs/06-toolchain.md) | Tooling | Step-by-step use of GPMC, PowerShell, Windows Admin Center/WinRM, OpenSSH, Entra Connect, Azure Backup, and the Kali toolset |
 | [07 - Managed Windows fleet hardening](docs/07-managed-windows-fleet-hardening.md) | Endpoint hardening | Managed OU design, user and workstation GPO separation, credential hardening, AppLocker targeted denies, browser and Settings allowlists |
+| [08 - Logon-hours enforcement offline](docs/08-logon-hours-offline-enforcement.md) | Endpoint access control | AD logon-hours testing, cached-logon hardening, local scheduled warnings, machine-side SYSTEM enforcement, timezone troubleshooting |
 
 ## Repository layout
 
