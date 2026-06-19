@@ -1,6 +1,6 @@
 # Chapter 06 - Toolchain and walkthroughs
 
-The earlier chapters say what I built. This one says what I built it *with*, and shows the actual click-path and command sequence for the tools that did the heavy lifting. The walkthroughs use the same sanitized values as the rest of the repo (`corp.local`, `CORP-DC01` at `10.10.10.10`, admin workstation at `10.10.30.50`, users `acarter` and `jack-user`).
+The earlier chapters say what I built. This one says what I built it *with*, and shows the actual click-path and command sequence for the tools that did the heavy lifting.
 
 ## The toolset, by phase
 

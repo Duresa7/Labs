@@ -6,7 +6,7 @@
 # segment I control. Do not run any of this against systems you are not
 # authorized to test.
 #
-# Lab: corp.local (Windows Server 2025 AD lab). Identifiers are placeholders.
+# Lab: corp.local (Windows Server 2025 AD lab).
 # See ../../docs/05-attack-and-defend.md for the write-up and the controls
 # that stop each step.
 # =============================================================================

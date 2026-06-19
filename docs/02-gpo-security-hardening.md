@@ -113,7 +113,7 @@ Get-ItemProperty "HKLM:\Software\Policies\Google\Chrome\URLAllowlist"
 
 On a managed laptop, `chrome://policy` shows the allowlist and the two permitted extensions, the registry confirms `RunAsPPL = 1` and `CachedLogonsCount = 0`, and `Get-AppLockerPolicy -Effective` shows enforce mode rather than audit.
 
-The full per-GPO settings, extracted and sanitized from the live domain's GPO backups, are in [evidence/gpo-reports/](../evidence/gpo-reports/).
+The full per-GPO settings, extracted from the live domain's GPO backups, are in [evidence/gpo-reports/](../evidence/gpo-reports/).
 
 ## What this proves
 

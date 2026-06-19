@@ -4,8 +4,6 @@ A Windows Server 2025 Active Directory forest, hardened the way a real managed e
 
 I build infrastructure by taking it apart. This repo is the write-up of one of those builds: a two-DC on-prem domain (`corp.local`) running on my Proxmox cluster, locked down with Group Policy and AppLocker, synced to a cloud tenant, protected with Azure Backup and Site Recovery, and then put through a red-team pass so I could prove the hardening actually holds. Every chapter ships the PowerShell that did the work and the evidence that it ran.
 
-> All identifiers in this repo are sanitized. The domain, hostnames, usernames, IP ranges, and Wi-Fi names are placeholders (`corp.local`, `CORP-DC01`, `jack-user`, `10.10.x.x`). The configurations, scripts, and policies are the real ones.
-
 ## Lab at a glance
 
 | Component | Detail |
@@ -71,7 +69,7 @@ flowchart TB
 ```
 docs/        five case-study chapters (start at 01)
 scripts/     the PowerShell that built and hardened the lab, by topic
-evidence/    sanitized GPO exports
+evidence/    GPO exports
 diagrams/    Mermaid source for the diagrams used across the chapters
 ```
 
@@ -79,4 +77,4 @@ diagrams/    Mermaid source for the diagrams used across the chapters
 
 Start with [chapter 01](docs/01-onprem-ad-build.md) for the foundation, or jump to the [GPO hardening](docs/02-gpo-security-hardening.md) and [attack/defend](docs/05-attack-and-defend.md) chapters if you came for the security work. Each chapter follows the same five beats: the objective, the architecture, the implementation (with scripts), how I verified it, and what it demonstrates.
 
-The scripts in [`scripts/`](scripts/) are runnable. They prompt for credentials rather than storing them, and they use the same sanitized values as the docs, so read before you run.
+The scripts in [`scripts/`](scripts/) are runnable. They prompt for credentials rather than storing them, so read before you run.

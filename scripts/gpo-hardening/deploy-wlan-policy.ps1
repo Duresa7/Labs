@@ -9,7 +9,6 @@
   before/after evidence. The Wi-Fi pre-shared key is supplied at runtime.
 .NOTES
   Lab: corp.local  (Windows Server 2025 Active Directory lab)
-  Identifiers (domain, hosts, users, IPs) are sanitized placeholders.
   Credentials are prompted at runtime, never hardcoded.
 #>
 param([string]$WifiPsk = 'REPLACE-WITH-WIFI-PSK')

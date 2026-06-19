@@ -8,7 +8,6 @@
   on-prem and in the cloud.
 .NOTES
   Lab: corp.local  (Windows Server 2025 Active Directory lab)
-  Identifiers (domain, users) are sanitized placeholders.
   Run on a domain controller as a Domain Admin.
 #>
 

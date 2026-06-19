@@ -1,6 +1,6 @@
 # Scripts
 
-The automation behind the lab, grouped by chapter. Read before you run. Every script uses the same sanitized values as the docs (`corp.local`, `CORP-DC01`, `jack-user`, `10.10.x.x`), prompts for any credential instead of storing it, and assumes an elevated session.
+The automation behind the lab, grouped by chapter. Read before you run. Every script prompts for any credential instead of storing it, and assumes an elevated session.
 
 ## ad-setup ([chapter 01](../docs/01-onprem-ad-build.md))
 

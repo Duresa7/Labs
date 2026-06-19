@@ -1,8 +1,6 @@
 # GPO-ManagedWorkstations-Security — Settings Evidence
 
-> Sanitized export of the live `GPO-ManagedWorkstations-Security` Group Policy Object.
-> All real domain names, SIDs, account names, hostnames, and IPs have been replaced with
-> lab-safe placeholders. See [`README.md`](./README.md) for the sanitization summary.
+> Export of the live `GPO-ManagedWorkstations-Security` Group Policy Object.
 
 | Property | Value |
 |----------|-------|
@@ -240,4 +238,4 @@ ytimg.com
 
 ---
 
-*Source: `gpo-managedworkstations-security-gpreport.xml` (sanitized raw export, same folder).*
+*Source: `gpo-managedworkstations-security-gpreport.xml` (raw export, same folder).*

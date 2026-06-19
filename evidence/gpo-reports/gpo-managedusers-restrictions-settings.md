@@ -1,8 +1,6 @@
 # GPO-ManagedUsers-Restrictions — Settings Evidence
 
-> Sanitized export of the live `GPO-ManagedUsers-Restrictions` Group Policy Object.
-> All real domain names, SIDs, account names, hostnames, and IPs have been replaced with
-> lab-safe placeholders. See [`README.md`](./README.md) for the sanitization summary.
+> Export of the live `GPO-ManagedUsers-Restrictions` Group Policy Object.
 
 | Property | Value |
 |----------|-------|
@@ -148,8 +146,8 @@ The allowlist permits only education, coding, documentation, AI, and Microsoft/G
 productivity domains. See
 [`gpo-managedworkstations-security-settings.md`](./gpo-managedworkstations-security-settings.md#6-content-filtering--browser-url-lists-machine-scope)
 for the full enumerated list (it is byte-for-byte identical between the two GPOs), or the raw
-sanitized export `gpo-managedusers-restrictions-gpreport.xml`.
+export `gpo-managedusers-restrictions-gpreport.xml`.
 
 ---
 
-*Source: `gpo-managedusers-restrictions-gpreport.xml` (sanitized raw export, same folder).*
+*Source: `gpo-managedusers-restrictions-gpreport.xml` (raw export, same folder).*

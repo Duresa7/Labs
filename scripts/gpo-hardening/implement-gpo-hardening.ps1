@@ -9,7 +9,6 @@
   AppLocker audit-mode baseline. Exports before/after evidence and a report.
 .NOTES
   Lab: corp.local  (Windows Server 2025 Active Directory lab)
-  Identifiers (domain, hosts, users, IPs) are sanitized placeholders.
   Credentials are prompted at runtime, never hardcoded.
 #>
 $ErrorActionPreference = 'Stop'

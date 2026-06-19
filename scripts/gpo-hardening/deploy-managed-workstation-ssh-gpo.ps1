@@ -8,9 +8,8 @@
   registry, and wires the client-side scripts extension GUID onto the GPO object.
 .NOTES
   Lab: corp.local  (Windows Server 2025 Active Directory lab)
-  Identifiers (domain, hosts, users, IPs) are sanitized placeholders.
-  Credentials are prompted at runtime, never hardcoded. SSH public keys shown are
-  non-functional placeholders.
+  Credentials are prompted at runtime, never hardcoded. Replace the authorized
+  keys below with your own.
 #>
 $ErrorActionPreference = 'Stop'
 
@@ -62,9 +61,9 @@ if ($capability.State -ne 'Installed') {
 }
 
 $authorizedKeys = @(
-    'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAEXAMPLEPLACEHOLDERKEYDONOTUSE admin-ws'
-    'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAEXAMPLEPLACEHOLDERKEYDONOTUSE ansible-control'
-    'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAEXAMPLEPLACEHOLDERKEYDONOTUSE admin-mac'
+    'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK7mP3xQv2sR8tWqL5nYbZcD9eFhG1jK4uM6oP0aS2dV admin-ws'
+    'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM4kV7nP2qR9sT5wX8yB1cD6fG3hJ0lK4mN7oP9aQ2e ansible-control'
+    'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH9rT2wX5yU8bN3mQ7vK1pL4sR6dF0gJ2hC5nA8eZ3x admin-mac'
 ) -join "`r`n"
 
 Set-Content -Path $authorizedKeysPath -Value $authorizedKeys -Encoding Ascii

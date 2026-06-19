@@ -8,7 +8,6 @@
   highest privileges and invoke the action script with the matching mode.
 .NOTES
   Lab: corp.local  (Windows Server 2025 Active Directory lab)
-  Identifiers (domain, hosts, users, IPs) are sanitized placeholders.
   Credentials are prompted at runtime, never hardcoded.
 #>
 $ErrorActionPreference = 'SilentlyContinue'
