@@ -63,11 +63,12 @@ flowchart TB
 | [04 - Backup & disaster recovery](docs/04-backup-and-disaster-recovery.md) | Resilience | Recovery Services vault, DC system-state backup, Azure Site Recovery, documented restore test |
 | [05 - Attack & defend](docs/05-attack-and-defend.md) | Offensive validation | Recon, poisoning, password spray, Kerberoasting, BloodHound, and mapping each result to the control that stops it |
 | [06 - Toolchain & walkthroughs](docs/06-toolchain.md) | Tooling | Step-by-step use of GPMC, PowerShell, Windows Admin Center/WinRM, OpenSSH, Entra Connect, Azure Backup, and the Kali toolset |
+| [07 - Managed Windows fleet hardening](docs/07-managed-windows-fleet-hardening.md) | Endpoint hardening | Managed OU design, user and workstation GPO separation, credential hardening, AppLocker targeted denies, browser and Settings allowlists |
 
 ## Repository layout
 
 ```
-docs/        five case-study chapters (start at 01)
+docs/        numbered case-study chapters (start at 01)
 scripts/     the PowerShell that built and hardened the lab, by topic
 evidence/    GPO exports
 diagrams/    Mermaid source for the diagrams used across the chapters
