@@ -50,3 +50,15 @@ The full sanitized group is in [configs/proxmox-zero-access.fw](../../configs/pr
 It would be easy to argue this is redundant, since the gateway already blocks most of this. Redundant is the point. The two firewalls fail in different ways: a misconfigured zone policy on the gateway, a VLAN that accidentally routes somewhere it should not, a port profile applied to the wrong switch port. Any one of those could expose the hypervisor management surface to a segment it should never see. The host firewall is what stands behind that mistake. For the management plane specifically, I want two independent yes votes before a connection succeeds, and a single no anywhere to stop it.
 
 This is the same instinct as the network design as a whole: no single control is trusted to be complete, and the most sensitive surface gets the most layers.
+
+## Files in this project
+
+- [`../../configs/proxmox-zero-access.fw`](../../configs/proxmox-zero-access.fw) - the full `zero_access` security group.
+- [`commands.md`](commands.md) - the `pve-firewall` workflow to apply and verify it.
+- [`sources.md`](sources.md) - Proxmox firewall and defense-in-depth references.
+
+## Evidence
+
+![The zero_access security group on my Proxmox datacenter firewall](evidence/proxmox-datacenter-firewall.png)
+
+*The real `zero_access` group on my Proxmox datacenter firewall: the management range allowed to the GUI (8006), the two WireGuard subnet allows into the management and server ranges, and the two catch-all `DROP` rules for SSH (22) and the GUI (8006). Real internal ranges are shown as proof; the written walkthrough uses placeholder `10.x` equivalents, and no WAN address, MAC, or SSID is in frame. This snapshot is a subset of the full group in the linked config.*

@@ -103,3 +103,13 @@ flowchart TD
 ## What I check it against
 
 After every change I sanity-check three things: the DMZ cannot reach any internal host except the one allowed app-tier path; the IoT zone reaches the internet and nothing else; and the management tier is unreachable from anywhere but `Internal` and the VPN. Those three invariants are the whole point of the segmentation, and the policy set is written so they hold by default rather than by the absence of a mistake.
+
+## Files in this project
+
+- [`sources.md`](sources.md) - UniFi firewall and NIST firewall-policy references.
+
+## Evidence
+
+![The zone policy matrix on my gateway](evidence/zone-policy-matrix.png)
+
+*The Source-by-Destination zone matrix on my real gateway, the default posture every user policy sits on top of: `Untrusted` (IoT) is "Block All" toward internal zones, `DMZ` is return-only, and the rest is allowed only where a policy says so. The system zones are shown here; my custom `Lab-Mgmt` and `Lab-Servers` zones add further rows. No addresses, MACs, or SSIDs appear in this view.*

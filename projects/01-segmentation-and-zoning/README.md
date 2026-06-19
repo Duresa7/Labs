@@ -104,3 +104,14 @@ Client isolation on IoT-WiFi means two smart devices on the same radio cannot ta
 ## What this gave me
 
 A device's position on the network now determines what it can reach, and that position is set in three places that all agree: the VLAN it is addressed in, the switch port or SSID that admits it, and the zone its VLAN belongs to. A smart plug on IoT-WiFi lands in VLAN 20, in the `Untrusted` zone, isolated from its neighbors and allowed out to the internet but not into any internal segment. The hypervisor management interface lands in `Lab-Mgmt`, reachable only from `Internal` and the VPN. The flat network's single trust level became twelve, and the firewall in [project 02](../02-zone-based-firewall/README.md) is what holds the lines between them.
+
+## Files in this project
+
+- [`../../configs/switch-baseline.cfg`](../../configs/switch-baseline.cfg) - the IOS switch baseline (VLANs, pruned trunk, SSH-only) that carries these segments.
+- [`sources.md`](sources.md) - 802.1Q, zero-trust, and UniFi/Cisco references.
+
+## Evidence
+
+![The Proxmox-Trunk port profile on my switch](evidence/proxmox-trunk-port-profile.png)
+
+*The selective hypervisor trunk on my real controller: tagged VLANs set to Custom (the lab tiers) rather than "Allow All," so the uplink carries only the VLANs the cluster serves. This is an earlier snapshot showing a subset of those tiers. Internal VLAN names are shown as proof; the walkthrough above uses placeholder names and `10.<vlan>.0.0/24` addressing, and no WAN address, MAC, or SSID is in frame.*
