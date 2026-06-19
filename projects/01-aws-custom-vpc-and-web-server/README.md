@@ -83,3 +83,8 @@ Every piece here has a counterpart in network design I already understood, which
 | Security group | a stateful, instance-level firewall |
 
 The private subnet sitting there with no route out is the same instinct as the management tier on my home network: the most protected place is the one with no path to the outside, and you only open a path when something has a reason to need it.
+
+## Files in this project
+
+- [`commands.md`](commands.md) - the AWS CLI equivalent of the whole console build.
+- [`sources.md`](sources.md) - AWS VPC, security-group, and CLI references.

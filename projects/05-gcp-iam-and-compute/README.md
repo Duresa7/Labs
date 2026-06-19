@@ -52,3 +52,8 @@ The rest of the GCP work was hands-on with the CLI and the console:
 ## What carries across the three providers
 
 Working GCP after AWS and Azure made the pattern obvious: each provider has a hierarchy of scopes, roles that bundle permissions, and a least-privilege discipline that says bind the narrowest role at the lowest scope. AWS calls them policies and ARNs, Azure calls them role assignments and scopes ([project 04](../04-azure-resource-governance/README.md)), GCP calls them bindings and a resource hierarchy. The vocabulary changes; the instinct, granting the least access at the most specific place, transfers unchanged.
+
+## Files in this project
+
+- [`commands.md`](commands.md) - the gcloud commands for the VPC, a VM, and the IAM grant/revoke pair.
+- [`sources.md`](sources.md) - GCP IAM, resource-hierarchy, and VPC references.

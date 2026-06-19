@@ -60,3 +60,8 @@ Putting a real number on it surfaced the trade-offs an idle design hides:
 - **The database may be overkill.** A light player-state workload might live in a flat file or a small managed store for far less than a dedicated RDS instance; I would validate the database is earning its line on the bill before keeping it.
 
 The proposal is small, but it is the whole shape of a real cloud decision: gather the requirements, pick instance types and storage to match, draw the network so only the needed port is open, and then put a monthly figure on it so the design can be argued about in dollars rather than vibes.
+
+## Files in this project
+
+- [`setup-commands.md`](setup-commands.md) - the AWS CLI and SteamCMD commands to provision the proposed server.
+- [`sources.md`](sources.md) - pricing, instance-type, SteamCMD, and Arma 3 server references.

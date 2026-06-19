@@ -56,3 +56,8 @@ The detail that makes locks worth knowing: even an Owner is stopped by a lock un
 ## The throughline
 
 Resource groups, RBAC, NSGs, access levels, and locks are five different controls answering the same question from different angles: who or what is allowed to do this, and where. None of them is about building something new; they are about making sure what exists cannot be reached, changed, or destroyed except on purpose.
+
+## Files in this project
+
+- [`commands.md`](commands.md) - the Azure CLI for resource groups, NSG rules, RBAC, and the two lock types.
+- [`sources.md`](sources.md) - Azure RBAC, resource-lock, and NSG references.

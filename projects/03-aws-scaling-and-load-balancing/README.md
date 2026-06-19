@@ -44,3 +44,8 @@ A single server cannot do either of these; the pool does both with no manual ste
 ## Why the load balancer matters beyond balancing
 
 The load balancer is also the natural place to terminate TLS and the single front to harden, which keeps the instances behind it simpler. It is the cloud version of the edge layer in my [network design](https://github.com/Duresa7/Network-Lab): one controlled entry point, everything real behind it, and the things behind it never exposed directly. The health check doing double duty as both a traffic router and a failure detector is what makes the whole pool behave like one dependable service instead of a handful of fragile ones.
+
+## Files in this project
+
+- [`commands.md`](commands.md) - the AWS CLI for the AMI, ALB, launch template, and Auto Scaling group, plus the self-healing test.
+- [`sources.md`](sources.md) - ELB and EC2 Auto Scaling references.

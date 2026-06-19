@@ -53,3 +53,8 @@ The shape mirrors the three-tier idea from my [network design](https://github.co
 ## What the three labs add up to
 
 Compute, storage, and data are the three things any real workload needs, and each lab was about the same underlying discipline: put the resource in the right place, give it only the access it needs, and make sure its data can survive the resource being destroyed. The web server from [project 01](../01-aws-custom-vpc-and-web-server/README.md) is the front; this is the machinery behind it.
+
+## Files in this project
+
+- [`commands.md`](commands.md) - the AWS CLI for the EC2, EBS, and RDS steps.
+- [`sources.md`](sources.md) - EC2, EBS, and RDS references.
