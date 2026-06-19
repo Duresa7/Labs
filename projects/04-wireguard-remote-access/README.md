@@ -50,3 +50,9 @@ A second VPN egress exists for routing some outbound traffic through a commercia
 ## What the internet sees
 
 From outside, the network presents a handful of UDP ports that perform a WireGuard handshake or stay silent, and the published service ports for the DMZ. There is no administrative login page, no SSH banner, and no controller UI anywhere on the WAN. Remote administration works by joining the network, not by punching a hole in it.
+
+## Evidence
+
+![The Management Access WireGuard server on the gateway](evidence/wireguard-server-config.png)
+
+*The `Management Access` WireGuard server on the real gateway: WireGuard type, listening on UDP 51822, terminating into its own tunnel subnet with each client peer pinned to a single `/32`. The private and public keys and the public (WAN) server address are blacked out; the tunnel subnet shown is the real `10.6.0.0/24` (the walkthrough renumbers it to `10.200.6.0/24`), and client device names are blacked out.*

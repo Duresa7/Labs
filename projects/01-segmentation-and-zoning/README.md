@@ -112,6 +112,10 @@ A device's position on the network now determines what it can reach, and that po
 
 ## Evidence
 
+![The routed VLANs on my gateway](evidence/vlan-networks.png)
+
+*The routed VLANs on my real controller, each with its VLAN ID, name, and `/24` subnet - the segmentation this whole project is about. Real internal VLAN names and `192.168.<vlan>.x` subnets are shown as proof; the walkthrough above uses placeholder names and `10.<vlan>.0.0/24` addressing. The WAN address and ISP in the Internet panel are blacked out, and no MAC or SSID is in frame.*
+
 ![The Proxmox-Trunk port profile on my switch](evidence/proxmox-trunk-port-profile.png)
 
 *The selective hypervisor trunk on my real controller: tagged VLANs set to Custom (the lab tiers) rather than "Allow All," so the uplink carries only the VLANs the cluster serves. This is an earlier snapshot showing a subset of those tiers. Internal VLAN names are shown as proof; the walkthrough above uses placeholder names and `10.<vlan>.0.0/24` addressing, and no WAN address, MAC, or SSID is in frame.*

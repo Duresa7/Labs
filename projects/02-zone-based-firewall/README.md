@@ -113,3 +113,11 @@ After every change I sanity-check three things: the DMZ cannot reach any interna
 ![The zone policy matrix on my gateway](evidence/zone-policy-matrix.png)
 
 *The Source-by-Destination zone matrix on my real gateway, the default posture every user policy sits on top of: `Untrusted` (IoT) is "Block All" toward internal zones, `DMZ` is return-only, and the rest is allowed only where a policy says so. The system zones are shown here; my custom `Lab-Mgmt` and `Lab-Servers` zones add further rows. No addresses, MACs, or SSIDs appear in this view.*
+
+![The user-defined firewall policies](evidence/firewall-policy-list.png)
+
+*A slice of the user policies on the real gateway: specific allows (My PC to the servers, the `DMZ Allow List`, server end-users to the Proxmox servers), the `Block DMZ to LAN` perimeter block, the built-in DHCP/DNS/ICMP service allows, and a Valheim port-forward - each with its source and destination zone and its evaluation ID. Internal VLAN names and `192.168.x` hosts (e.g. `192.168.30.96`, `192.168.40.253`) are shown as proof; client device names are blacked out, and the walkthrough above uses placeholder names and `10.<vlan>.0.0/24` addressing.*
+
+![Isolation blocks and the default inter-zone rules](evidence/firewall-isolation-and-return.png)
+
+*The block end of the rule set: the `Isolated Networks` policies that stop the IoT/Untrusted VLAN (`192.168.20.0/24`) from reaching any internal zone, the `Block DMZ to Internal` perimeter block, and the default per-zone `Allow All Traffic` entries the custom policies sit on top of. Source/device names are blacked out; internal `192.168.x` addressing is shown as proof and the walkthrough uses `10.<vlan>.0.0/24` placeholders.*
