@@ -11,10 +11,10 @@ aws ec2 create-vpc --cidr-block 10.0.0.0/16 \
 aws ec2 modify-vpc-attribute --vpc-id <vpc-id> --enable-dns-hostnames
 
 # 2. Public and private subnets in different AZs
-aws ec2 create-subnet --vpc-id <vpc-id> --cidr-block 10.0.10.0/24 \
+aws ec2 create-subnet --vpc-id <vpc-id> --cidr-block 10.0.2.0/24 \
   --availability-zone us-east-1a \
   --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=lab-subnet-public}]'
-aws ec2 create-subnet --vpc-id <vpc-id> --cidr-block 10.0.20.0/24 \
+aws ec2 create-subnet --vpc-id <vpc-id> --cidr-block 10.0.3.0/24 \
   --availability-zone us-east-1b \
   --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=lab-subnet-private}]'
 

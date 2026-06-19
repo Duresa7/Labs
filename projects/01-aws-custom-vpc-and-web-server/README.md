@@ -10,8 +10,8 @@ flowchart TD
     IGW["Internet gateway"]
     subgraph vpc["lab-vpc  10.0.0.0/16"]
         direction TB
-        PUB["public subnet 10.0.10.0/24 (us-east-1a)<br/>Web Server EC2 + public IP"]
-        PRIV["private subnet 10.0.20.0/24 (us-east-1b)<br/>no inbound from internet"]
+        PUB["public subnet 10.0.2.0/24 (us-east-1a)<br/>Web Server EC2 + public IP"]
+        PRIV["private subnet 10.0.3.0/24 (us-east-1b)<br/>no inbound from internet"]
     end
 
     NET --- IGW
@@ -28,8 +28,8 @@ Then two subnets in different availability zones, so the design can survive one 
 
 | Subnet | CIDR | AZ | Role |
 |---|---|---|---|
-| lab-subnet-public | 10.0.10.0/24 | us-east-1a | internet-facing |
-| lab-subnet-private | 10.0.20.0/24 | us-east-1b | internal only |
+| lab-subnet-public | 10.0.2.0/24 | us-east-1a | internet-facing |
+| lab-subnet-private | 10.0.3.0/24 | us-east-1b | internal only |
 
 A `/24` out of a `/16` gives each subnet 251 usable addresses after AWS reserves five, which is the kind of subnetting arithmetic I work through by hand in my [network lab](https://github.com/Duresa7/Network-Lab/blob/main/projects/07-ipv4-addressing-design/README.md).
 
@@ -88,3 +88,28 @@ The private subnet sitting there with no route out is the same instinct as the m
 
 - [`commands.md`](commands.md) - the AWS CLI equivalent of the whole console build.
 - [`sources.md`](sources.md) - AWS VPC, security-group, and CLI references.
+- `evidence/` - console screenshots of the build (below).
+
+## Evidence
+
+Screenshots from the AWS console as I built it. These are from an AWS Academy sandbox account (a temporary lab account, not a personal one); the account-menu strip with the lab login has been cropped off.
+
+![VPC details: lab-vpc, 10.0.0.0/16, with the resource map](evidence/aws-01-vpc-details.png)
+
+*`lab-vpc` (`vpc-0bee956eb1744ce30`), IPv4 CIDR `10.0.0.0/16`, DNS enabled, and the resource map showing the public/private subnets, route tables, and the internet gateway.*
+
+![Subnet created: lab-subnet-public2, 10.0.2.0/24](evidence/aws-02-subnets-created.png)
+
+*The public subnet created: `lab-subnet-public2`, `10.0.2.0/24`, in `us-east-1a`, 251 usable addresses.*
+
+![Web Security Group with an inbound web rule](evidence/aws-03-security-group.png)
+
+*The security group: inbound web (HTTPS/443) from `0.0.0.0/0`, scoped to `lab-vpc`.*
+
+![EC2 launch into the public subnet](evidence/aws-04-ec2-launch.png)
+
+*Launching the web server: Amazon Linux 2023 (`ami-079db87dc4c10ac91`), t2.micro, into `lab-subnet-public2` with auto-assign public IP enabled, the Web Security Group attached, and an 8 GiB gp3 root volume.*
+
+![Lab grader: 30/30](evidence/aws-05-lab-score.png)
+
+*The grader's result: 30/30, with the website-reachable check passing, which proves the gateway, public route, subnet placement, public IP, and security group were all correct together.*
