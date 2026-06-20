@@ -68,7 +68,7 @@ Auto-assigning the public IP plus the public subnet's route to the gateway is wh
 
 ## Verifying it worked
 
-The lab's grader checked six things, and all six passed for a total of 30 out of 30: the VPC was created correctly, the subnets were created correctly, the subnet-to-route-table association was right, the security group was right, the EC2 instance was created correctly, and the instance's website was reachable over the internet. That last check is the real one. A page loading from the instance's public address proves the entire chain at once: the gateway, the public route, the subnet placement, the public IP, and the security group all had to be correct together for a single HTTP response to come back.
+I verified the build the way that actually matters: I loaded the web server's page from its public address. Six things had to be right for that to work, and the page coming back proves all of them at once: the VPC, the two subnets, the subnet-to-route-table association, the security group, the EC2 instance, and the public route to the internet gateway. A single HTTP response only returns if the gateway, the public route, the subnet placement, the public IP, and the security group are all correct together.
 
 ## What it maps to
 
@@ -109,10 +109,6 @@ Screenshots from the AWS console as I built it, from an AWS sandbox account (a t
 ![EC2 launch into the public subnet](evidence/aws-04-ec2-launch.png)
 
 *Launching the web server: Amazon Linux 2023 (`ami-079db87dc4c10ac91`), t2.micro, into `lab-subnet-public2` with auto-assign public IP enabled, the Web Security Group attached, and an 8 GiB gp3 root volume.*
-
-![Lab grader: 30/30](evidence/aws-05-lab-score.png)
-
-*The grader's result: 30/30, with the website-reachable check passing, which proves the gateway, public route, subnet placement, public IP, and security group were all correct together.*
 
 ![Route tables: the public subnet associated with lab-rtb-public](evidence/aws-06-route-tables.png)
 
