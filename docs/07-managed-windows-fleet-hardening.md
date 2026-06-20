@@ -117,7 +117,7 @@ inventory:
 The useful part is the shape of the deny rules. I did not need to list every app
 on the machine. I needed to block execution from the places a standard user can
 write to and add named denies for launchers that users tend to sideload. The
-sanitized rule summary is in
+rule summary is in
 [`applocker-targeted-deny-rules.md`](../evidence/gpo-reports/applocker-targeted-deny-rules.md).
 
 ## Browser and Settings Controls

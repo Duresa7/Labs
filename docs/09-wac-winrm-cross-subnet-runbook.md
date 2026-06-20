@@ -8,7 +8,7 @@ wide.
 
 ## Environment
 
-| Component | Sanitized value |
+| Component | Value |
 |---|---|
 | Admin workstation | `10.10.30.50` |
 | Domain controller | `CORP-DC01`, `10.10.10.10` |

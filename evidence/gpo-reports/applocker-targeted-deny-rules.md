@@ -1,6 +1,6 @@
 # AppLocker targeted deny rules
 
-Sanitized summary of the enforced AppLocker ruleset used by
+Summary of the enforced AppLocker ruleset used by
 `GPO-ManagedWorkstations-Security`.
 
 This is not a full XML export. The raw export is evidence-only source material;

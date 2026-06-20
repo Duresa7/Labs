@@ -12,7 +12,7 @@
 | Last modified | 2026-04-26 |
 | Computer config | Enabled |
 | User config | Enabled (no user-side settings configured) |
-| Owner | `CORP\Domain Admins` (`DOMAIN-SID-REDACTED`) |
+| Owner | `CORP\Domain Admins` |
 
 This GPO is the machine-side hardening baseline applied to the **Managed Workstations** OU.
 It combines a security template, registry-based hardening, AppLocker application control,

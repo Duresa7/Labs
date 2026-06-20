@@ -76,7 +76,7 @@ script does not need the user's token. It asks Windows who is signed in with
 `quser.exe`, finds the managed account, and calls `logoff.exe` against that
 session ID.
 
-The sanitized implementation lives in:
+The implementation lives in:
 
 - [`logon-hours-machine-register.ps1`](../scripts/gpo-hardening/logon-hours-machine-register.ps1)
 - [`logon-hours-machine-action.ps1`](../scripts/gpo-hardening/logon-hours-machine-action.ps1)

@@ -7,12 +7,12 @@
 | GPO Name | `GPO-ManagedUsers-Restrictions` |
 | Domain | `corp.local` |
 | Linked to (SOM) | `corp.local/Users-Accounts/Managed` |
-| Security filtering | `CORP\GRP-ManagedUsers` (`DOMAIN-SID-REDACTED`) |
+| Security filtering | `CORP\GRP-ManagedUsers` |
 | Created | 2026-04-04 |
 | Last modified | 2026-04-26 |
 | Computer config | (no settings) |
 | User config | Enabled |
-| Owner | `CORP\Domain Admins` (`DOMAIN-SID-REDACTED`) |
+| Owner | `CORP\Domain Admins` |
 
 This GPO is the **user-side** restriction set applied to managed (standard) user accounts in the
 **Users-Accounts/Managed** OU and filtered to the `CORP\GRP-ManagedUsers` group. It locks down the
