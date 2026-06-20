@@ -1,6 +1,6 @@
 # Commands
 
-Every command from this project, grouped by task. User names, groups, and host names are placeholders; the commands are the ones I ran.
+Every command from this project, grouped by task. The commands are the ones I ran.
 
 ## Ownership and permissions
 

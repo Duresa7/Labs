@@ -45,7 +45,7 @@ Almost all of this is meant to run on machines I am not sitting in front of, so 
 
 ## Evidence
 
-Screenshots from my own Kali Linux VM. My handle `alphafly`, the loopback address, and the internal lab addresses are shown on purpose as proof; the prose above uses placeholders.
+Screenshots from my own Kali Linux VM.
 
 ![Process list from ps aux](evidence/process-list-ps-aux.png)
 

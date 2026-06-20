@@ -69,7 +69,7 @@ Get-WindowsUpdate -AcceptAll -Install | Tee-Object -FilePath "$HOME\Documents\in
 
 ![Output files saved to disk](evidence/06-output-files-saved.png)
 
-*The four artifacts the run produced: the available-update list and the install log, each in both text and CSV. The profile name in the path is boxed out.*
+*The four artifacts the run produced: the available-update list and the install log, each in both text and CSV.*
 
 ## Verifying the result
 
@@ -104,4 +104,4 @@ The GUI can install the same updates. What this approach adds is everything arou
 
 ## Evidence
 
-Screenshots from my own Windows 11 machine. The host name appears only as the truncated "DESKTOP-Q..." that the update cmdlets print, and my profile name is boxed out of the one File Explorer shot; the commands and their output are real.
+Screenshots from my own Windows 11 machine; the commands and their output are real.

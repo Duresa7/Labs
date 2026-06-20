@@ -35,7 +35,7 @@ For text inside files I used `grep`, then `egrep` and `fgrep` when I wanted exte
 
 ## Evidence
 
-Screenshots from my own Kali Linux VM. My handle `alphafly` and the internal lab paths are shown on purpose as proof the work is mine; the prose above uses placeholder names.
+Screenshots from my own Kali Linux VM.
 
 ![Creating and copying directories](evidence/directory-operations.png)
 

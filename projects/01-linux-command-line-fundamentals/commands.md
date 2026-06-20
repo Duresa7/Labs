@@ -1,6 +1,6 @@
 # Commands
 
-Every command from this project, grouped by task. Paths and file names are placeholders; the commands are the ones I ran.
+Every command from this project, grouped by task. The commands are the ones I ran.
 
 ## Orientation and help
 
