@@ -24,7 +24,7 @@ Starting block `172.16.10.0/24`, each subnet to hold 30 hosts; then take the fou
 | 3 | 172.16.10.64/27 | .65 - .94 | .95 |
 | 4 | 172.16.10.96/27 | .97 - .126 | .127 |
 
-Now re-subnet subnet 4 (`172.16.10.96/27`) for 14 hosts. 14 rounds to 16 addresses, a `/28` (mask 255.255.255.240):
+Now re-subnet the fourth block (`172.16.10.96/27`) for 14 hosts. 14 rounds to 16 addresses, a `/28` (mask 255.255.255.240):
 
 | Sub-subnet | Network | Range | Broadcast |
 |---|---|---|---|
