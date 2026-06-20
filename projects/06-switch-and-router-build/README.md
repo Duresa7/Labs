@@ -1,6 +1,6 @@
 # Switch and router build
 
-Before the UniFi network, I learned the moving parts by building them from scratch on Cisco gear: a switch, a router, two end hosts, addressed by hand, secured before they were reachable, and verified end to end. This project is that build, plus the SSH hardening and the troubleshooting pass that go with it. It is the layer everything else in this repository assumes you understand, so I wrote it as the full procedure rather than a summary.
+Before the UniFi network, I learned the moving parts by building them from scratch on Cisco gear: a switch, a router, two end hosts, addressed by hand, secured before they were reachable, and verified end to end. This project is that build, plus the SSH hardening, MAC-table verification, and troubleshooting pass that go with it. It is the layer everything else in this repository assumes you understand, so I wrote it as the full procedure rather than a summary.
 
 ## The topology
 
@@ -16,7 +16,7 @@ flowchart LR
     R -->|"G0/0/1"| PCB
 ```
 
-PC-A sits on a switched segment; the router connects that segment to PC-B's segment and routes between the two subnets.
+PC-A sits on a switched segment; the router connects that segment to PC-B's segment and routes between the two subnets. The original lab used a common private-address teaching range for PC-A. I rewrote that segment as `10.1.10.128/25` here so the public repo does not reuse the home-range pattern reserved for approved screenshots.
 
 ## Addressing plan
 
@@ -67,6 +67,8 @@ banner motd #Unauthorized access is prohibited.#
 
 Two choices there matter. `transport input ssh` means the VTY lines accept SSH and refuse Telnet, so management credentials never cross the wire in clear text. `service password-encryption` plus `enable secret` means the running config does not carry a readable password even if someone gets a copy of it. The same baseline, written for a multi-VLAN access switch, is in [configs/switch-baseline.cfg](../../configs/switch-baseline.cfg).
 
+The lab's throwaway Cisco passwords are safe to show, but this repository still keeps them as placeholders because the useful part is the control: hashed privileged mode, encrypted line passwords, local users for VTY access, SSH version 2, and no Telnet. The project-specific sanitized snippets are in [device-configs.md](device-configs.md).
+
 ## Bringing up the router
 
 ```
@@ -100,8 +102,21 @@ The build is not done until traffic proves it. I verified in this order:
 1. `show ip interface brief` on Central, confirming both gigabit interfaces read `up/up`.
 2. `ping 10.1.10.254` from PC-A and `ping 172.16.30.97` from PC-B, confirming each host reaches its own gateway.
 3. `ping 172.16.30.99` from PC-A, the real test: a successful reply means addressing, masks, gateways, and routing are all correct at once, because the packet crossed from one subnet through the router into the other and a reply came back.
+4. `show mac address-table` on S1 after traffic, confirming the switch learned dynamic MAC entries on the access and uplink ports instead of flooding everything forever.
 
-When that final ping succeeds, the whole chain is proven.
+When the final ping succeeds and S1 has learned the expected forwarding entries, the whole chain is proven: host addressing, gateways, router interfaces, switch forwarding, and return traffic.
+
+## Evidence handling
+
+The completed Packet Tracer files stay out of the repository because they are proprietary lab binaries. The public evidence for this project should be screenshots and CLI snippets only:
+
+- the physical topology with PC-A, S1, Central, and PC-B;
+- Central showing both routed interfaces as `up/up`;
+- S1 showing SSH-only VTY access and encrypted local credentials;
+- PC-A successfully pinging PC-B;
+- S1 showing learned dynamic MAC-table entries after the ping.
+
+Those screenshots still need the redaction pass before they are added: no personal name, no source title or number, no account banners, and no raw file names from the source folder.
 
 ## Troubleshooting when it does not
 
