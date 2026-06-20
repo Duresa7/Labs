@@ -1,7 +1,7 @@
 # Sources
 
 - **Nmap reference guide, "Port Scanning Techniques."** `https://nmap.org/book/man-port-scanning-techniques.html`
-  The behavior of `-sT`, `-sS`, `-sF`, `-sN`, `-sX`, and `-O` and how each infers open versus closed.
+  The behavior of `-sT`, `-sS`, `-sF`, `-sN`, `-sX`, and `-O`, and how each infers open versus closed.
 - **Nmap reference guide, "OS Detection."** `https://nmap.org/book/osdetect.html`
   How the `-O` fingerprint infers the operating system from stack behavior.
 - **RFC 793, "Transmission Control Protocol."** `https://www.rfc-editor.org/rfc/rfc793`
