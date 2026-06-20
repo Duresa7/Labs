@@ -32,3 +32,19 @@ For text inside files I used `grep`, then `egrep` and `fgrep` when I wanted exte
 
 - [commands.md](commands.md) - every command from this project, grouped by task.
 - [sources.md](sources.md) - the references I used.
+
+## Evidence
+
+Screenshots from my own Kali Linux VM. My handle `alphafly` and the internal lab paths are shown on purpose as proof the work is mine; the prose above uses placeholder names.
+
+![Creating and copying directories](evidence/directory-operations.png)
+
+*Creating a directory with `mkdir`, copying it with `cp -r`, renaming it with `mv`, and listing the result.*
+
+![File operations and stat output](evidence/file-operations-and-stat.png)
+
+*Copying, moving, and reading a file, then inspecting its metadata (size, timestamps, owner) with `stat`.*
+
+![Symbolic links](evidence/symbolic-links.png)
+
+*Creating a symbolic link with `ln -s`, copying the link itself with `cp -P`, and printing the current user and date.*

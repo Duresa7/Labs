@@ -38,3 +38,27 @@ Almost all of this is meant to run on machines I am not sitting in front of, so 
 
 - [commands.md](commands.md) - every command from this project, grouped by task.
 - [sources.md](sources.md) - the references I used.
+
+## Evidence
+
+Screenshots from my own Kali Linux VM. My handle `alphafly`, the loopback address, and the internal lab addresses are shown on purpose as proof; the prose above uses placeholders.
+
+![Process list from ps aux](evidence/process-list-ps-aux.png)
+
+*The running-process snapshot from `ps aux`, with the user, PID, resource use, and command for each.*
+
+![Editing the cron schedule](evidence/crontab-schedule.png)
+
+*Editing the schedule with `crontab -e`: the five-field format and an example job set to run daily.*
+
+![apt package management](evidence/apt-package-management.png)
+
+*Working through a package with `apt-get` and confirming the installed version.*
+
+![Host interfaces with ip addr](evidence/ip-addr-interfaces.png)
+
+*Reading the VM's own interfaces and addresses with `ip addr`.*
+
+![SSH login accepting the host key](evidence/ssh-key-based-login.png)
+
+*Starting the SSH service and connecting over SSH, accepting the host key on the first connection.*
