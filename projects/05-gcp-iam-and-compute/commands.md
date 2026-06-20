@@ -1,6 +1,6 @@
 # Command reference (gcloud)
 
-The `gcloud` equivalent of the IAM and compute labs. Placeholders for project ID and accounts.
+The `gcloud` equivalent of the IAM and compute labs.
 
 ```bash
 # Set the default zone (the step that tripped me up until I read why it is needed)

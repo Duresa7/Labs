@@ -4,8 +4,6 @@ Hands-on work across the three major cloud providers, written up as the projects
 
 I keep the deeper cloud-identity work (hybrid directory sync, conditional access) in my [Azure AD lab](https://github.com/Duresa7/Hybrid-Azure-AD-Lab); this repository is about cloud infrastructure, access, and cost.
 
-> **A note on the values in here.** Account identifiers, resource IDs, public addresses, access keys, and personal details have been removed or replaced with placeholders to protect my privacy. Lab credentials shown in any console were short-lived and have long expired; I have stripped them regardless. The architectures, the CIDR layouts, the settings I chose, and the results are real.
-
 ## Projects
 
 | Project | What it covers |

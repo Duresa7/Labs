@@ -1,6 +1,6 @@
 # Command reference (AWS CLI)
 
-The CLI equivalent of the three labs (compute lifecycle, block storage, managed database). Console in the lab; this is how I would script it. Placeholders for IDs.
+The CLI equivalent of the three labs (compute lifecycle, block storage, managed database). Console in the lab; this is how I would script it.
 
 ## EC2: launch, resize, stop-protection
 

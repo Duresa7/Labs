@@ -1,6 +1,6 @@
 # Command reference (AWS CLI)
 
-The CLI equivalent of the load-balanced, self-healing pool. Placeholders for IDs/ARNs.
+The CLI equivalent of the load-balanced, self-healing pool.
 
 ```bash
 # 1. Golden image from the configured web server

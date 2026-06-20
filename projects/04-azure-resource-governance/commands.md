@@ -1,6 +1,6 @@
 # Command reference (Azure CLI)
 
-The `az` equivalent of the governance labs. Placeholders for subscription/principal IDs.
+The `az` equivalent of the governance labs.
 
 ```bash
 # Resource group: the lifecycle container everything else lives in

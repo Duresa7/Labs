@@ -1,6 +1,6 @@
 # Command reference (AWS CLI)
 
-I built this lab in the AWS console, but here is the equivalent AWS CLI, which is how I would script the same VPC so it is repeatable instead of click-by-click. Resource IDs are placeholders you fill from each command's output; addresses match the [walkthrough](README.md).
+I built this lab in the AWS console, but here is the equivalent AWS CLI, which is how I would script the same VPC so it is repeatable instead of click-by-click. The resource IDs come from each command's output; addresses match the [walkthrough](README.md).
 
 ```bash
 export AWS_DEFAULT_REGION=us-east-1

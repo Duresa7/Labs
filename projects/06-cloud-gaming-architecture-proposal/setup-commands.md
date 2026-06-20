@@ -1,6 +1,6 @@
 # Setup commands
 
-What I would run to stand up the proposed server, matching the [design](README.md): an m5.large with a 100 GB gp3 volume, only the game port open, and the dedicated server installed with SteamCMD. Placeholders for IDs.
+What I would run to stand up the proposed server, matching the [design](README.md): an m5.large with a 100 GB gp3 volume, only the game port open, and the dedicated server installed with SteamCMD.
 
 ```bash
 export AWS_DEFAULT_REGION=us-east-1
