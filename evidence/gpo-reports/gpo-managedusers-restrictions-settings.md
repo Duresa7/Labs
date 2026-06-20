@@ -1,4 +1,4 @@
-# GPO-ManagedUsers-Restrictions — Settings Evidence
+# GPO-ManagedUsers-Restrictions: Settings Evidence
 
 > Export of the live `GPO-ManagedUsers-Restrictions` Group Policy Object.
 
@@ -27,13 +27,13 @@ allow/deny content filter as the workstation GPO at user scope.
 
 | Setting | State |
 |---------|-------|
-| Settings Page Visibility | Enabled — `showonly:` allowlist (see below) |
+| Settings Page Visibility | Enabled, `showonly:` allowlist (see below) |
 | Prevent changing color and appearance | Enabled |
 | Prevent changing desktop background | Enabled |
 | Prevent changing desktop icons | Enabled |
 | Prevent changing screen saver | Enabled |
 
-**Settings Page Visibility — `showonly:` list** (only these Windows Settings pages are visible):
+**Settings Page Visibility, `showonly:` list** (only these Windows Settings pages are visible):
 
 ```
 display; project; bluetooth; printers; mousetouchpad; devices-touchpad; typing; pen; autoplay;
@@ -61,13 +61,13 @@ privacy-speech; privacy-feedback; privacy-activityhistory; privacy-backgroundapp
 |---------|-------|--------|
 | Don't run specified Windows applications | Enabled | Disallowed-application list (see below) |
 | Prevent access to registry editing tools | Enabled | Disable `regedit` silent run: Yes |
-| Remove Change Password (Ctrl+Alt+Del) | Enabled | — |
-| Remove Task Manager (Ctrl+Alt+Del) | Enabled | — |
-| Restrict users to the explicitly permitted list of snap-ins | Enabled | Permitted list is **empty** — all MMC snap-ins blocked |
-| Turn off the Store application | Enabled | — |
-| Always install with elevated privileges | Disabled | — |
+| Remove Change Password (Ctrl+Alt+Del) | Enabled | - |
+| Remove Task Manager (Ctrl+Alt+Del) | Enabled | - |
+| Restrict users to the explicitly permitted list of snap-ins | Enabled | Permitted list is **empty**; all MMC snap-ins blocked |
+| Turn off the Store application | Enabled | - |
+| Always install with elevated privileges | Disabled | - |
 
-**Don't run specified Windows applications — disallowed list:**
+**Don't run specified Windows applications, disallowed list:**
 
 | Category | Executables |
 |----------|-------------|
@@ -92,7 +92,7 @@ privacy-speech; privacy-feedback; privacy-activityhistory; privacy-backgroundapp
 |----------|-------|------|--------|
 | `HKCU\Software\Policies\Microsoft\Windows\System` | `DisableCMD` | `0` | Command prompt **not** disabled (left enabled for coding shells) |
 
-### Browser policies (Google Chrome — user scope)
+### Browser policies (Google Chrome: user scope)
 
 | Value | Data | Effect |
 |-------|------|--------|
@@ -114,7 +114,7 @@ privacy-speech; privacy-feedback; privacy-activityhistory; privacy-backgroundapp
 
 ---
 
-## 3. Content Filtering — Browser URL Lists (user scope)
+## 3. Content Filtering: Browser URL Lists (user scope)
 
 Same allow/deny model as the workstation GPO, applied to **Google Chrome and Microsoft Edge**
 at user scope.
@@ -140,7 +140,7 @@ at user scope.
 *://leagueoflegends.com/*     *://*.leagueoflegends.com/*
 ```
 
-### URL allowlist (178 entries — identical to the workstation GPO)
+### URL allowlist (178 entries: identical to the workstation GPO)
 
 The allowlist permits only education, coding, documentation, AI, and Microsoft/Google
 productivity domains. See

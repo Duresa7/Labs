@@ -1,4 +1,4 @@
-# GPO Reports — Evidence
+# GPO Reports: Evidence
 
 This folder contains **exports of Group Policy Objects from the lab's live Active
 Directory domain**. The files were produced from GPO settings-report backups
@@ -18,8 +18,8 @@ source export.
 ## Scope note
 
 The backup archives provided for this evidence set contained settings reports for **two** GPOs
-only — `GPO-ManagedWorkstations-Security` and `GPO-ManagedUsers-Restrictions`. Two other GPOs
-that exist in the broader lab — **`GPO-PasswordPolicy`** and **`Managed Workstations - OpenSSH
-Server`** — were **not present** in any of the supplied backup archives, so no report
+only: `GPO-ManagedWorkstations-Security` and `GPO-ManagedUsers-Restrictions`. Two other GPOs
+that exist in the broader lab, **`GPO-PasswordPolicy`** and **`Managed Workstations - OpenSSH
+Server`**, were **not present** in any of the supplied backup archives, so no report
 could be generated for them here. They will be added once their `gpreport.xml` backups are
 available.

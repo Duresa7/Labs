@@ -1,4 +1,4 @@
-# GPO-ManagedWorkstations-Security — Settings Evidence
+# GPO-ManagedWorkstations-Security: Settings Evidence
 
 > Export of the live `GPO-ManagedWorkstations-Security` Group Policy Object.
 
@@ -49,14 +49,14 @@ Windows Firewall rules, browser machine policies, and a content-filtering allow/
 
 | Setting | State | Detail |
 |---------|-------|--------|
-| Windows Defender Firewall: Protect all network connections (Domain Profile) | Enabled | — |
-| Always wait for the network at computer startup and logon | Enabled | — |
+| Windows Defender Firewall: Protect all network connections (Domain Profile) | Enabled | - |
+| Always wait for the network at computer startup and logon | Enabled | - |
 | Set the default behavior for AutoRun | Enabled | Do not execute any autorun commands |
 | Turn off Autoplay | Enabled | All drives |
 | Set a default associations configuration file | Enabled | `\\corp.local\SYSVOL\corp.local\Policies\{0DC3217F-4AAC-4A5A-843C-CC596C7328DC}\Machine\CORP\ChromeDefaultAssociations.xml` |
-| Allow users to connect remotely by using Remote Desktop Services | Enabled | — |
-| Turn off the Store application | Enabled | — |
-| Always install with elevated privileges | Disabled | — |
+| Allow users to connect remotely by using Remote Desktop Services | Enabled | - |
+| Turn off the Store application | Enabled | - |
+| Always install with elevated privileges | Disabled | - |
 | Prohibit User Installs | Enabled | Hide User Installs |
 | Turn off Windows Installer | Enabled | For non-managed applications only |
 
@@ -127,7 +127,7 @@ Firewall is enabled on **all three profiles** (Domain, Private, Public). Policy 
 |------|--------|-------------------|------------|----------|
 | Remote Desktop - Shadow (UDP) `@FirewallAPI.dll,-28776` | Allow | `svchost.exe` / `termservice` | 3389 | UDP (17) |
 | Remote Desktop - User Mode (TCP-In) | Allow | `System` | 3389 | TCP (6) |
-| Remote Desktop - Shadow (TCP) `@FirewallAPI.dll,-28778` | Allow | `%SystemRoot%\system32\RdpSa.exe` | — | TCP (6) |
+| Remote Desktop - Shadow (TCP) `@FirewallAPI.dll,-28778` | Allow | `%SystemRoot%\system32\RdpSa.exe` | - | TCP (6) |
 
 ---
 
@@ -140,7 +140,7 @@ Appx (packaged apps), Exe, Msi, Dll, and Script.
 
 - **Allow base rules** (`Everyone`, SID `S-1-1-0`) for the trusted system locations:
   `%PROGRAMFILES%\*`, `%PROGRAMFILES% (x86)\*`, `%WINDIR%\*`.
-- **Allow Administrators all** (`BUILTIN\Administrators`, SID `S-1-5-32-544`, path `*`) — admins bypass the targeted blocks.
+- **Allow Administrators all** (`BUILTIN\Administrators`, SID `S-1-5-32-544`, path `*`); admins bypass the targeted blocks.
 - **Deny user-writable locations** (`Everyone`) so code cannot run from per-user / download folders:
   `%OSDRIVE%\Users\*\Downloads\*`, `...\Desktop\*`, `...\OneDrive\Downloads\*`, `...\OneDrive\Desktop\*`,
   `...\AppData\Local\Temp\*`, `...\AppData\Local\Programs\*`,
@@ -151,9 +151,9 @@ Appx (packaged apps), Exe, Msi, Dll, and Script.
 
 | Rule | Action | Condition |
 |------|--------|-----------|
-| Allow signed packaged apps | Allow (`Everyone`) | Any publisher (`*`) — Store/Xbox access blocked separately via user policy |
+| Allow signed packaged apps | Allow (`Everyone`) | Any publisher (`*`); Store/Xbox access blocked separately via user policy |
 
-### Exe — explicit game / launcher denies (`Everyone`)
+### Exe: explicit game / launcher denies (`Everyone`)
 
 Blocked executable names (`*\<name>`):
 
@@ -164,7 +164,7 @@ Blocked executable names (`*\<name>`):
 
 ---
 
-## 6. Content Filtering — Browser URL Lists (machine scope)
+## 6. Content Filtering: Browser URL Lists (machine scope)
 
 The same allow/deny model is applied to **both Google Chrome and Microsoft Edge** machine policies.
 
@@ -179,7 +179,7 @@ The same allow/deny model is applied to **both Google Chrome and Microsoft Edge*
 
 Roblox, Steam (`steampowered.com`, `steamcommunity.com`, `store.steampowered.com`),
 Epic Games, Fortnite, Minecraft, Xbox play, Discord (`discord.com`, `discordapp.com`),
-Twitch, Battle.net, Riot Games, League of Legends — listed both as bare domains/wildcards
+Twitch, Battle.net, Riot Games, League of Legends, listed both as bare domains/wildcards
 and as `*://...` scheme-qualified patterns.
 
 ### URL allowlist (178 entries, identical for Chrome and Edge)
