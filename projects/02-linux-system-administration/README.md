@@ -1,4 +1,4 @@
-# System administration
+# Linux system administration
 
 Once I was comfortable moving around the shell, I moved on to the tasks that actually keep a machine running: deciding who can touch what, watching and controlling processes, scheduling work, installing software, and checking the network. This is the record of that work on a Kali Linux VM. The exact commands are in [commands.md](commands.md).
 

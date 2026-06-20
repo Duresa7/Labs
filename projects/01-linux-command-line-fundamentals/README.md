@@ -1,4 +1,4 @@
-# Command-line fundamentals
+# Linux command-line fundamentals
 
 When I started working seriously in Linux I made a rule for myself: do everything from the terminal, even the things a file manager would do faster. The point was to build the muscle memory I would need later on headless servers, where there is no desktop to fall back on. This project is the record of that, run on a Kali Linux VM. The exact commands are collected in [commands.md](commands.md).
 
