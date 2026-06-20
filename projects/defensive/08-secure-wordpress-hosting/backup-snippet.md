@@ -1,6 +1,6 @@
-# Sanitized backup snippet
+# Backup snippet
 
-The live job runs daily at 02:00 and keeps seven days of database dumps. Paths use `/home/analyst` as the public placeholder for the real Unix user.
+The live job runs daily at 02:00 and keeps seven days of database dumps.
 
 ## Backup script
 
@@ -11,9 +11,9 @@ set -euo pipefail
 DATE=$(date +%Y-%m-%d_%H-%M-%S)
 BACKUP_DIR="/home/analyst/backups/wordpress"
 CONTAINER="wordpress-db-1"
-DB_USER="<redacted>"
+DB_USER="${WP_DB_USER}"
 DB_NAME="wordpress"
-DB_PASSWORD="<redacted>"
+DB_PASSWORD="${WP_DB_PASSWORD}"
 
 mkdir -p "$BACKUP_DIR"
 docker exec "$CONTAINER" mariadb-dump -u "$DB_USER" -p"$DB_PASSWORD" "$DB_NAME" > "$BACKUP_DIR/wordpress-$DATE.sql"
@@ -32,9 +32,9 @@ echo "Backup completed: wordpress-$DATE.sql"
 ## Restore
 
 ```bash
-DB_USER="<redacted>"
+DB_USER="${WP_DB_USER}"
 DB_NAME="wordpress"
 docker exec -i wordpress-db-1 mariadb -u "$DB_USER" -p "$DB_NAME" < /home/analyst/backups/wordpress/wordpress-YYYY-MM-DD_HH-MM-SS.sql
 ```
 
-The restore command is documented with the same redaction rule as the backup script: real database credentials stay out of the repo.
+Like the backup script, the restore command reads the database credentials from the environment, so they stay out of the repo.

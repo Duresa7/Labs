@@ -1,6 +1,6 @@
 # Live-response command runbook
 
-The exact commands I ran on the suspected-compromised Windows host, in the order I ran them, with what each one captured and why it comes when it does. The ordering follows the order of volatility: the most fragile evidence first. Output from each was written to a dedicated evidence folder, not left on screen. Addresses and host identity are placeholders.
+The exact commands I ran on the suspected-compromised Windows host, in the order I ran them, with what each one captured and why it comes when it does. The ordering follows the order of volatility: the most fragile evidence first. Output from each was written to a dedicated evidence folder, not left on screen.
 
 ```powershell
 # 1. Session context -- who am I running as right now

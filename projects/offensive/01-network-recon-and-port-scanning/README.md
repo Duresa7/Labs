@@ -134,4 +134,4 @@ You cannot stop someone from sending you packets, but you can change what they l
 
 *`nmap -O`: the full open-service profile and the Linux 2.6.x OS guess.*
 
-These screenshots are from isolated training VMs. The visible `192.168.10.x` addresses and `08:00:27` MAC prefixes are lab-only values, not home network data.
+These screenshots are from isolated training VMs.

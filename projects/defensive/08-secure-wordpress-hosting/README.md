@@ -8,7 +8,7 @@ A public WordPress host gets noisy fast. The patterns I planned for were not exo
 
 ## Isolation and ingress
 
-The WordPress workload runs on `wp-01`, a Debian VM in the application tier at the placeholder address `10.80.0.10`. The edge host sits in the DMZ and is the only system allowed to proxy web traffic to the WordPress container on port 8080. There is no direct inbound WAN port-forward to the WordPress VM.
+The WordPress workload runs on `wp-01`, a Debian VM in the application tier at `192.168.80.10`. The edge host sits in the DMZ and is the only system allowed to proxy web traffic to the WordPress container on port 8080. There is no direct inbound WAN port-forward to the WordPress VM.
 
 The public path is Cloudflare first, then a Cloudflare Tunnel, then Caddy on the edge host, then the WordPress container. That ingress pattern lines up with the public [homelab ingress flow](https://github.com/Duresa7/Homelab-Project/blob/main/diagrams/ingress-flow.md), while the east-west restrictions come from the [Network-Lab zone firewall](https://github.com/Duresa7/Network-Lab/blob/main/projects/02-zone-based-firewall/README.md).
 
@@ -18,7 +18,7 @@ flowchart LR
     Cloudflare["Cloudflare<br/>WAF + bot controls + Turnstile"]
     Tunnel["Cloudflare Tunnel<br/>tunnel ID omitted"]
     Edge["edge-01<br/>cloudflared + Caddy"]
-    WordPress["wp-01<br/>WordPress on 10.80.0.10:8080"]
+    WordPress["wp-01<br/>WordPress on 192.168.80.10:8080"]
     Database["MariaDB<br/>Docker network only"]
     Wazuh["Wazuh agent<br/>FIM + SCA + logs"]
 
@@ -37,7 +37,7 @@ Cloudflare handles the first pass because it can block junk before the tunnel to
 | Layer | Control | What it reduces |
 |---|---|---|
 | Tunnel | Cloudflare Tunnel to the edge host | Direct origin exposure and WAN port-forwarding |
-| WAF | Custom rule for admin paths, with the admin source represented as `203.0.113.10` | Drive-by access to WordPress admin routes |
+| WAF | Custom rule for admin paths, locked to a single admin source IP | Drive-by access to WordPress admin routes |
 | Bot controls | Bot Fight Mode | Commodity bot traffic before it reaches WordPress |
 | Turnstile | Login and password reset challenge | Automated login and reset abuse |
 | Rate limiting | Login path throttled to a small request count in a short window | Brute force bursts and noisy scanners |
@@ -64,9 +64,9 @@ The table-prefix change is a small hardening step, not the control I rely on. It
 
 ## Application and data layout
 
-The Docker Compose stack keeps WordPress and MariaDB together while keeping the database off the routed network. The public WordPress URL is represented as `https://example.com`; database and admin secrets are always shown as `<redacted>`.
+The Docker Compose stack keeps WordPress and MariaDB together while keeping the database off the routed network. The public WordPress URL is `https://example.com`. Database and admin secrets live in an `.env` file that stays out of git.
 
-The sanitized compose and proxy notes are in [`compose-snippet.md`](compose-snippet.md). The source stack used:
+The compose and proxy notes are in [`compose-snippet.md`](compose-snippet.md). The stack used:
 
 - the official `wordpress:latest` image;
 - `mariadb:latest` for the database;
@@ -81,7 +81,7 @@ The sanitized compose and proxy notes are in [`compose-snippet.md`](compose-snip
 
 Daily database backups run at 02:00 with a seven-day retention window. The backup job dumps MariaDB from the database container, writes a timestamped SQL file under `/home/analyst/backups/wordpress/`, logs to `/home/analyst/backups/backup.log`, and deletes SQL backups older than seven days.
 
-The sanitized backup and restore commands are in [`backup-snippet.md`](backup-snippet.md). I treated the restore command as part of the backup, because an untested backup is only a file.
+The backup and restore commands are in [`backup-snippet.md`](backup-snippet.md). I treated the restore command as part of the backup, because an untested backup is only a file.
 
 ## Monitoring
 
@@ -89,7 +89,6 @@ The WordPress host reports to the [Wazuh SIEM project](../07-wazuh-siem-deployme
 
 ## Files in this project
 
-- [`compose-snippet.md`](compose-snippet.md) - sanitized Docker Compose, Caddy, WAF, and rate-limit examples.
-- [`backup-snippet.md`](backup-snippet.md) - sanitized MariaDB backup, retention, and restore notes.
+- [`compose-snippet.md`](compose-snippet.md) - Docker Compose, Caddy, WAF, and rate-limit examples.
+- [`backup-snippet.md`](backup-snippet.md) - MariaDB backup, retention, and restore notes.
 - [`sources.md`](sources.md) - public references used for the controls.
-- `evidence/` - screenshots will be staged after the screenshot-redaction task.

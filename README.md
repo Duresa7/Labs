@@ -6,8 +6,6 @@ The centerpiece of the defensive side is a real incident-response record I wrote
 
 > **Scope and authorization.** The offensive work was done in isolated, host-only virtual lab networks, against machines I built or was explicitly authorized to test (a Kali attacker against a deliberately vulnerable target VM). None of it touches systems I do not control. The write-ups describe method and outcome; they stop short of reusable shellcode and live targets. The point is understanding, not a copy-paste attack kit.
 
-> **A note on the values in here.** Names, host names, addresses, MAC addresses, hashes, and project identifiers are placeholders. Product names of services I actually use (Vercel, Supabase, GitHub) are kept where they carry the story. The `192.168.10.x` training IPs and VirtualBox `08:00:27` MAC prefixes in the offensive evidence are isolated lab values cleared for this repo. No raw evidence files (disk images, packet captures, event logs) are included, only the written analysis. The methodology, commands, detections, and findings are real.
-
 ## Defensive
 
 | Project | What it covers |

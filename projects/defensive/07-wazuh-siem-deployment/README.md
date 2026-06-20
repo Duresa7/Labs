@@ -8,7 +8,7 @@ I wanted one place where host evidence could land before I had a full SOC stack:
 
 ## Single-node build
 
-I deployed Wazuh as an all-in-one node named `wazuh-01` on Ubuntu 22.04 LTS with 4 vCPUs, 16 GiB of RAM, and a 100 GB disk. It lives in the management tier at the placeholder address `10.70.0.20`.
+I deployed Wazuh as an all-in-one node named `wazuh-01` on Ubuntu 22.04 LTS with 4 vCPUs, 16 GiB of RAM, and a 100 GB disk. It lives in the management tier at `192.168.70.20`.
 
 The assisted installer put the three core services on the same VM:
 
@@ -49,10 +49,10 @@ flowchart LR
 
 The first two enrolled agents were the edge host and the WordPress application host. The WordPress host is the same service family described in [my homelab services writeup](https://github.com/Duresa7/Homelab-Project/blob/main/docs/06-self-hosted-services.md), but this project focuses on the monitoring layer rather than the application build.
 
-| Agent | Role | OS | Placeholder address | Zone | Status |
+| Agent | Role | OS | Address | Zone | Status |
 |---|---|---|---|---|---|
-| `wp-01` | WordPress application host | Debian 13 | `10.80.0.10` | Lab-Servers | Active |
-| `edge-01` | Edge / reverse-proxy host | Debian 13 | `10.90.0.10` | DMZ | Active |
+| `wp-01` | WordPress application host | Debian 13 | `192.168.80.10` | Lab-Servers | Active |
+| `edge-01` | Edge / reverse-proxy host | Debian 13 | `192.168.90.10` | DMZ | Active |
 
 On each Debian agent I added the Wazuh package repository, pointed the installer at the manager, and started the service:
 
@@ -62,7 +62,7 @@ sudo curl -s https://packages.wazuh.com/key/GPG-KEY-WAZUH | sudo gpg --no-defaul
 sudo chmod 644 /usr/share/keyrings/wazuh.gpg
 echo "deb [signed-by=/usr/share/keyrings/wazuh.gpg] https://packages.wazuh.com/4.x/apt/ stable main" | sudo tee /etc/apt/sources.list.d/wazuh.list
 sudo apt update
-sudo WAZUH_MANAGER='10.70.0.20' apt-get install wazuh-agent -y
+sudo WAZUH_MANAGER='192.168.70.20' apt-get install wazuh-agent -y
 sudo systemctl daemon-reload
 sudo systemctl enable wazuh-agent
 sudo systemctl start wazuh-agent
@@ -74,8 +74,8 @@ The agents do not need broad access to the management tier. They need TCP 1514 f
 
 | Source zone | Source scope | Destination | Ports | Why |
 |---|---|---|---|---|
-| Lab-Servers | App hosts | `wazuh-01` (`10.70.0.20`) | TCP 1514, 1515 | Let server agents enroll and send events |
-| DMZ | `edge-01` only | `wazuh-01` (`10.70.0.20`) | TCP 1514, 1515 | Let the edge host report in without opening the rest of the DMZ |
+| Lab-Servers | App hosts | `wazuh-01` (`192.168.70.20`) | TCP 1514, 1515 | Let server agents enroll and send events |
+| DMZ | `edge-01` only | `wazuh-01` (`192.168.70.20`) | TCP 1514, 1515 | Let the edge host report in without opening the rest of the DMZ |
 
 That rule shape matters. Logs flow inward to the SIEM, but the app and edge tiers still cannot administer the management tier. If an exposed host is compromised, Wazuh still receives telemetry, while the firewall keeps that host from becoming a management-plane pivot.
 
@@ -94,4 +94,3 @@ I left Active Response available but not configured because automatic blocking n
 ## Files in this project
 
 - [`sources.md`](sources.md) - Wazuh and related portfolio references.
-- `evidence/` - dashboard and agent screenshots will be staged after the screenshot-redaction task.

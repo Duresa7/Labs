@@ -1,6 +1,6 @@
-# Sanitized compose and ingress snippets
+# Compose and ingress snippets
 
-These snippets show the shape of the build without publishing the real domain, tunnel identifier, login path, or credentials.
+These snippets show the shape of the build.
 
 ## Docker Compose
 
@@ -39,13 +39,13 @@ volumes:
   db_data:
 ```
 
-The `.env` file stays out of git and uses redacted values in documentation:
+The `.env` file stays out of git. The variables it sets:
 
 ```dotenv
 MYSQL_DATABASE=wordpress
-MYSQL_USER=<redacted>
-MYSQL_PASSWORD=<redacted>
-MYSQL_ROOT_PASSWORD=<redacted>
+MYSQL_USER=wp_user
+MYSQL_PASSWORD=<strong-password>
+MYSQL_ROOT_PASSWORD=<strong-password>
 ```
 
 ## Caddy
@@ -56,7 +56,7 @@ MYSQL_ROOT_PASSWORD=<redacted>
 }
 
 http://example.com {
-    reverse_proxy 10.80.0.10:8080 {
+    reverse_proxy 192.168.80.10:8080 {
         header_up X-Forwarded-Proto https
     }
 }
@@ -67,7 +67,7 @@ http://example.com {
 ## Cloudflare rules
 
 ```text
-Block admin path unless source is the documented admin address:
+Block admin path unless the source is the admin IP:
 (http.request.uri.path contains "/wp-admin") and (ip.src ne 203.0.113.10)
 ```
 
@@ -78,4 +78,4 @@ limit: 5 requests in 10 seconds
 action: block for 1 minute
 ```
 
-The real login path is omitted. The route is still protected by WAF rules, Turnstile, Wordfence, and 2FA.
+The login path itself is kept private. The route is still protected by WAF rules, Turnstile, Wordfence, and 2FA.

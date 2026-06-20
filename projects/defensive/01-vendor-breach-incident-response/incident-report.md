@@ -9,7 +9,7 @@
 | **Prepared by** | Project owner |
 | **Version** | 1.1 |
 
-> This is the deliverable produced during the response. Names, the application's brand, and the Supabase project/organization identifiers have been replaced with placeholders; the structure, decisions, rotation order, and verification are exactly as performed. The narrative of how I worked through it is in the [project README](README.md); the sources I relied on are in [sources.md](sources.md).
+> This is the deliverable produced during the response; the structure, decisions, rotation order, and verification are exactly as performed. The narrative of how I worked through it is in the [project README](README.md); the sources I relied on are in [sources.md](sources.md).
 
 ## 1. Executive summary
 

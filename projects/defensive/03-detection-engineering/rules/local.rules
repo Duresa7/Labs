@@ -2,7 +2,7 @@
 # Each was tested by generating the matching attack from a Kali box and
 # confirming the alert fired on the sensor console. See ../README.md for the
 # walkthrough and ../evidence/ for the console captures of these firing.
-# Addresses are placeholders; $HOME_NET / $EXTERNAL_NET are snort.conf variables.
+# $HOME_NET / $EXTERNAL_NET are snort.conf variables.
 # The two locally authored scan signatures are sid:1000006 and sid:1000010.
 # The large-ICMP rule is kept with the lab set because the ping evidence proves
 # that payload-size matching fired on the sensor.

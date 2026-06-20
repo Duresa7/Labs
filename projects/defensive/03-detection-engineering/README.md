@@ -34,7 +34,7 @@ The package install prompted for a network interface. I kept the lab interface a
 
 ## Rules I wrote
 
-The two locally authored scan signatures are the Xmas-tree and UDP scan alerts. I also tested an oversized-ICMP rule to prove that a payload-size condition fired on the ping traffic. Addresses are placeholders.
+The two locally authored scan signatures are the Xmas-tree and UDP scan alerts. I also tested an oversized-ICMP rule to prove that a payload-size condition fired on the ping traffic.
 
 **Catch an Xmas-tree scan** by its illegal flag combination:
 
@@ -131,7 +131,7 @@ The takeaway is the entire point of detection engineering: a SIEM only catches w
 
 ## Evidence
 
-The rules firing on the sensor console as I generated each attack from a Kali box on the lab network (`192.168.10.6` -> `192.168.10.7`). These are training-lab VM addresses; the captures do not show a WAN address, MAC address, SSID, or home device identifier.
+The rules firing on the sensor console as I generated each attack from a Kali box on the lab network (`192.168.10.6` -> `192.168.10.7`).
 
 ![Snort firing on an Xmas-tree scan](evidence/snort-xmas-scan-alerts.png)
 

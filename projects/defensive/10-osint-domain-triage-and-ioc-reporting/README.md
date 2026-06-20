@@ -2,7 +2,7 @@
 
 A short, common analyst task: a set of domains needs a reputation check, and the answer has to come back as a report someone can act on, not a screenshot of a website. This project is one of those. I ran a passive open-source reputation assessment on four web domains, then wrote it up as a formal indicator-of-compromise (IOC) report: what I checked, what I found, what it means, and what to do about it. The point of the exercise was as much the report discipline as the lookup.
 
-> **Sanitized for public sharing.** The real domains and the report's original distribution marking are redacted here; the four are shown as `domain-a[.]example` through `domain-d[.]example` in defanged form. The methodology, the vendor result, the analysis, and the recommendations are unchanged.
+The four domains are shown as `domain-a[.]example` through `domain-d[.]example` in defanged form.
 
 ## The task and the method
 
@@ -38,7 +38,7 @@ The report closed on actions, ordered by what I would do first:
 
 ## Why this belongs here
 
-This is the intake end of the same lifecycle the rest of this side of the repo works in. A reputation flag like this one is exactly the kind of low-confidence lead that, confirmed, becomes an entry in a [detection rule](../03-detection-engineering/README.md) or a line in an [incident timeline](../02-dfir-investigation/README.md). Writing it up in a fixed structure (summary, method, indicators, analysis, recommendations) with an honest confidence level is what makes it useful to the next person instead of a dead end. Real IOC reports also carry a Traffic Light Protocol marking that controls who the report can be shared with; the original of this one was marked for limited distribution, which is why the specifics are redacted in this public version.
+This is the intake end of the same lifecycle the rest of this side of the repo works in. A reputation flag like this one is exactly the kind of low-confidence lead that, confirmed, becomes an entry in a [detection rule](../03-detection-engineering/README.md) or a line in an [incident timeline](../02-dfir-investigation/README.md). Writing it up in a fixed structure (summary, method, indicators, analysis, recommendations) with an honest confidence level is what makes it useful to the next person instead of a dead end. Real IOC reports also carry a Traffic Light Protocol marking that controls who the report can be shared with.
 
 ## Files in this project
 
