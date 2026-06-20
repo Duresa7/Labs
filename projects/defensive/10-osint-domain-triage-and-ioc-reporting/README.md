@@ -38,7 +38,7 @@ The report closed on actions, ordered by what I would do first:
 
 ## Why this belongs here
 
-This is the intake end of the same lifecycle the rest of this side of the repo works in. A reputation flag like this one is exactly the kind of low-confidence lead that, confirmed, becomes an entry in a detection rule or a line in an incident timeline. Writing it up in a fixed structure (summary, method, indicators, analysis, recommendations) with an honest confidence level is what makes it useful to the next person instead of a dead end. Real IOC reports also carry a Traffic Light Protocol marking that controls who the report can be shared with; the original of this one was marked for limited distribution, which is why the specifics are redacted in this public version.
+This is the intake end of the same lifecycle the rest of this side of the repo works in. A reputation flag like this one is exactly the kind of low-confidence lead that, confirmed, becomes an entry in a [detection rule](../03-detection-engineering/README.md) or a line in an [incident timeline](../02-dfir-investigation/README.md). Writing it up in a fixed structure (summary, method, indicators, analysis, recommendations) with an honest confidence level is what makes it useful to the next person instead of a dead end. Real IOC reports also carry a Traffic Light Protocol marking that controls who the report can be shared with; the original of this one was marked for limited distribution, which is why the specifics are redacted in this public version.
 
 ## Files in this project
 
