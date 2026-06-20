@@ -49,5 +49,6 @@ Each folder is a self-contained piece of the build, written as a walkthrough of 
 | [05 - Hypervisor host firewall](projects/05-hypervisor-host-firewall/README.md) | A default-deny Proxmox host firewall as the second layer behind the network firewall |
 | [06 - Switch and router build](projects/06-switch-and-router-build/README.md) | A from-scratch Cisco switch-and-router build: addressing, SSH hardening, and troubleshooting |
 | [07 - IPv4 addressing design](projects/07-ipv4-addressing-design/README.md) | Variable-length subnetting for three networks, worked end to end |
+| [08 - Proxmox cluster build](projects/08-proxmox-cluster-build/README.md) | Expanding a single-node Proxmox install into a three-node Galaxy cluster, including SSH-based joins, host-firewall remediation, quorum checks, and stale-node cleanup |
 
 Sanitized configuration artifacts (a switch baseline, a WireGuard server config, the host firewall group) live in [configs/](configs/).

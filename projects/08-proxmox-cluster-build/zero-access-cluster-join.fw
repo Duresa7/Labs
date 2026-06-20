@@ -1,0 +1,19 @@
+[group zero_access]
+# Sanitized excerpt from the Proxmox datacenter firewall.
+# Placeholder addressing follows the public repo convention.
+
+IN ACCEPT -source 10.40.0.36 -p tcp -dport 22,8006 -log nolog # automation host
+IN ACCEPT -source 10.10.0.27 -p tcp -dport 22,8006 -log nolog # admin laptop
+IN ACCEPT -source 10.50.0.241 -p tcp -dport 22,8006 -log nolog # hardened workstation
+IN ACCEPT -source 10.70.0.0/24 -p tcp -dport 9100 -log nolog # node exporter
+IN ACCEPT -source 10.70.0.0/24 -p tcp -dport 8006 -log nolog # management UI
+IN ACCEPT -source 10.200.6.0/24 -dest 10.70.0.0/24 -log nolog # management VPN
+IN ACCEPT -source 10.200.6.0/24 -dest 10.80.0.0/24 -log nolog # server VPN
+
+# Cluster SSH allows added for the three-node join.
+IN ACCEPT -source 10.70.0.10 -p tcp -dport 22 -log nolog # grey-server
+IN ACCEPT -source 10.70.0.11 -p tcp -dport 22 -log nolog # purple-server
+IN ACCEPT -source 10.70.0.12 -p tcp -dport 22 -log nolog # blue-server
+
+IN DROP -p tcp -dport 22 -log nolog # default-deny SSH
+IN DROP -p tcp -dport 8006 -log nolog # default-deny Proxmox GUI
