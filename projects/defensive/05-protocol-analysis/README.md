@@ -4,7 +4,7 @@ This project answers a question with a packet capture instead of an opinion: wha
 
 ## The setup
 
-A Kali box captured traffic in Wireshark on `eth0`, and a target Linux server (Metasploitable) was reachable over both Telnet (port 23) and SSH (port 22). I used PuTTY from Kali for both attempts so the capture changed only by protocol, then used Wireshark's **Follow TCP Stream** to reassemble each session into the conversation as the wire saw it. The captures show lab VMs only; no home WAN address, MAC address, SSID, or device nickname is visible. The credentials shown are the target's well-known defaults.
+A Kali box captured traffic in Wireshark on `eth0`, and a target Linux server (Metasploitable) was reachable over both Telnet (port 23) and SSH (port 22). I used PuTTY from Kali for both attempts so the capture changed only by protocol, then used Wireshark's **Follow TCP Stream** to reassemble each session into the conversation as the wire saw it. The credentials shown are the target's well-known defaults.
 
 ## Telnet: the login in clear text
 
