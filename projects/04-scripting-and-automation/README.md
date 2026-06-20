@@ -172,7 +172,7 @@ switch ($day) {
 }
 ```
 
-These are fundamentals rather than a finished tool, but they are the building blocks behind the real automation in my other repos: the scheduled jobs in [Homelab-Project](https://github.com/Duresa7/Homelab-Project) and the host setup work in this lab all come down to the same loops, conditionals, and file handling practiced here.
+These are fundamentals rather than a finished tool, but they are the building blocks behind the real automation in my other repos: the scheduled jobs in [Homelab-Project](https://github.com/Duresa7/Homelab-Project) and the host setup work in this lab all come down to the same loops, conditionals, and file handling practiced here. The PowerShell side gets applied to a real administrative task in [project 05, Windows patch management](../05-windows-patch-management/README.md).
 
 ## Files in this project
 

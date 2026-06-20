@@ -95,7 +95,7 @@ Restart-Computer
 
 ## Why do it this way
 
-The GUI can install the same updates. What this approach adds is everything around the install: a filter to prioritize security patches, control over when the reboot happens, a text and CSV record of what was applied, and a verification step that does not just trust the installer's word. Those are the parts that turn patching from a click into a process you can schedule across many machines and prove you ran.
+The GUI can install the same updates. What this approach adds is everything around the install: a filter to prioritize security patches, control over when the reboot happens, a text and CSV record of what was applied, and a verification step that does not just trust the installer's word. Those are the parts that turn patching from a click into a process you can schedule across many machines and prove you ran. The PowerShell this builds on is covered in [project 04, scripting for security and automation](../04-scripting-and-automation/README.md); patching itself is the remediation end of [vulnerability management and hardening](https://github.com/Duresa7/Cybersecurity-Lab/blob/main/projects/defensive/04-vulnerability-management-and-hardening/README.md), where the scanning that finds what needs patching lives.
 
 ## Files in this project
 
