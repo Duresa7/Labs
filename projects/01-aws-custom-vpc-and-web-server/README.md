@@ -92,7 +92,7 @@ The private subnet sitting there with no route out is the same instinct as the m
 
 ## Evidence
 
-Screenshots from the AWS console as I built it, from an AWS Academy sandbox account (a temporary lab account, not a personal one). The account-menu login email is removed from every shot - cropped off the earlier captures, blacked out on the route-tables capture - while the temporary lab account ID is left visible.
+Screenshots from the AWS console as I built it, from an AWS sandbox account (a temporary lab account, not a personal one). This is the approved evidence set for the VPC build: the console shots prove the resource configuration, while the workbench and portal pages stay out because they add no infrastructure proof and carry account context. The account-menu login email is removed from every shot - cropped off the earlier captures, blacked out on the route-tables capture - while the temporary lab account ID is left visible.
 
 ![VPC details: lab-vpc, 10.0.0.0/16, with the resource map](evidence/aws-01-vpc-details.png)
 

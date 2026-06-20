@@ -49,7 +49,11 @@ The point of costing it out is that "host it in the cloud" is not free, and the 
 | EBS snapshots | $2.50 |
 | **Total** | **~$195.74 / month** |
 
-The compute dominates, which is the lesson: the instance choice is the cost decision. An always-on m5.large is most of the bill, so the obvious next move is to stop the instance when nobody is playing, which on-demand pricing rewards directly. Data transfer is the second-largest and least predictable line, scaling with how much players pull down.
+The compute dominates, which is the lesson: the instance choice is the cost decision. An always-on m5.large is most of the bill, so the next cost control is to stop the instance when nobody is playing, which on-demand pricing rewards directly. Data transfer is the second-largest and least predictable line, scaling with how much players pull down.
+
+## Reconciliation against the approved proposal
+
+I checked this chapter against the approved proposal source and kept the architecture and cost decisions aligned: Arma 3, EC2 `m5.large`, `us-east-1`, Windows Server, SteamCMD, UDP `2344`, 100 GB gp3 EBS storage, `db.t3.medium`, EBS snapshots, and a total estimate of about `$195.74 / month`. I left out personal planning tables and kept the public writeup focused on the infrastructure decision.
 
 ## What I would reconsider
 
