@@ -9,6 +9,8 @@ id_*
 *.ovpn
 *.conf.local
 data.json
+tools/cloudflare-audit-live.json
+tools/cloudflare-config-audit/*.json
 
 # OS / editor noise
 .DS_Store
