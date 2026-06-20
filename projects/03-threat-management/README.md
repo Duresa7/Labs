@@ -22,8 +22,8 @@ Inspection is pointed at the segments where untrusted or exposed traffic actuall
 A few hosts are excluded from inspection on purpose, because their normal behavior trips signatures or because inspecting them adds latency with no benefit:
 
 - the first management VPN client (10.200.6.2), which generates admin traffic that looks like scanning when I sweep the network;
-- a hardened admin endpoint on the Secure VLAN (10.50.0.241);
-- the internal AD DNS server (10.65.0.10), whose query volume is high and trusted.
+- a hardened admin endpoint on the Secure VLAN (192.168.50.241);
+- the internal AD DNS server (192.168.65.10), whose query volume is high and trusted.
 
 Each exclusion is a deliberate trade, documented here so I remember why inspection has a hole in it.
 
@@ -37,16 +37,16 @@ I run honeypots on three segments as tripwires for lateral movement:
 
 | Segment | Honeypot address |
 |---|---|
-| Management | 10.1.0.2 |
-| IoT | 10.20.0.2 |
-| DMZ | 10.30.0.2 |
+| Management | 192.168.1.2 |
+| IoT | 192.168.20.2 |
+| DMZ | 192.168.30.2 |
 
 Nothing legitimate ever connects to these addresses. They host no real service and are not referenced by any record. So any connection attempt to one of them is, by definition, something probing the network from the inside, and it generates an alert the moment it happens. A honeypot on the Management and DMZ segments is the cheapest early warning I know of: an attacker who has landed somewhere and is looking around will find the decoy before they find anything that matters.
 
 ```mermaid
 flowchart LR
     ATT["Compromised IoT device"]
-    HP["Honeypot 10.20.0.2"]
+    HP["Honeypot 192.168.20.2"]
     REAL["Real hosts"]
     ALERT["Alert raised"]
 

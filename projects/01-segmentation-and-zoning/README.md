@@ -14,22 +14,22 @@ Twelve routed VLANs, each a `/24`, each with its own DHCP scope. The management 
 
 | VLAN | Name | Subnet | Zone | Purpose |
 |---|---|---|---|---|
-| 1 (untagged) | Management | 10.1.0.0/24 | Internal | UniFi devices, switch and AP management |
-| 10 | Trusted | 10.10.0.0/24 | Internal | My own workstations and phones |
-| 20 | IoT | 10.20.0.0/24 | Untrusted | Smart-home devices, network isolation on |
-| 30 | DMZ | 10.30.0.0/24 | Dmz | Internet-exposed services |
-| 40 | Personal | 10.40.0.0/24 | Internal | Shared household devices and a Docker host |
-| 50 | Secure | 10.50.0.0/24 | Internal | Hardened admin endpoints |
-| 60 | Secure-Client | 10.60.0.0/24 | Internal | Domain-joined clients (DNS points at the AD server) |
-| 65 | AD-Servers | 10.65.0.0/24 | Internal | Active Directory domain controllers |
-| 66 | AD-Endusers | 10.66.0.0/24 | Internal | Managed end-user accounts |
-| 70 | Lab-Mgmt | 10.70.0.0/24 | Lab-Mgmt | SIEM, monitoring, hypervisor administration |
-| 80 | Lab-Servers | 10.80.0.0/24 | Lab-Servers | Application and server workloads |
-| 90 | DMZ-Edge | 10.90.0.0/24 | Dmz | Reverse-proxy and edge workloads |
+| 1 (untagged) | Management | 192.168.1.0/24 | Internal | UniFi devices, switch and AP management |
+| 10 | Trusted | 192.168.10.0/24 | Internal | My own workstations and phones |
+| 20 | IoT | 192.168.20.0/24 | Untrusted | Smart-home devices, network isolation on |
+| 30 | DMZ | 192.168.30.0/24 | Dmz | Internet-exposed services |
+| 40 | Personal | 192.168.40.0/24 | Internal | Shared household devices and a Docker host |
+| 50 | Secure | 192.168.50.0/24 | Internal | Hardened admin endpoints |
+| 60 | Secure-Client | 192.168.60.0/24 | Internal | Domain-joined clients (DNS points at the AD server) |
+| 65 | AD-Servers | 192.168.65.0/24 | Internal | Active Directory domain controllers |
+| 66 | AD-Endusers | 192.168.66.0/24 | Internal | Managed end-user accounts |
+| 70 | Lab-Mgmt | 192.168.70.0/24 | Lab-Mgmt | SIEM, monitoring, hypervisor administration |
+| 80 | Lab-Servers | 192.168.80.0/24 | Lab-Servers | Application and server workloads |
+| 90 | DMZ-Edge | 192.168.90.0/24 | Dmz | Reverse-proxy and edge workloads |
 
 The Active Directory tiers (VLANs 65, 66, 60) are the subject of a separate build; the directory design, hybrid sync, and conditional access live in my [Hybrid Azure AD lab](https://github.com/Duresa7/Hybrid-Azure-AD-Lab). Here they matter only as routed segments with their own DNS.
 
-DHCP hands out 1.1.1.1 and 8.8.8.8 on the general VLANs and the internal AD DNS server (10.65.0.10) on the domain segments, so domain clients resolve internal names and everything else uses public resolvers. IPv6 is off on every VLAN; I did not want a second addressing plane to firewall before the v4 one was solid.
+DHCP hands out 1.1.1.1 and 8.8.8.8 on the general VLANs and the internal AD DNS server (192.168.65.10) on the domain segments, so domain clients resolve internal names and everything else uses public resolvers. IPv6 is off on every VLAN; I did not want a second addressing plane to firewall before the v4 one was solid.
 
 ## Trust zones
 
@@ -114,8 +114,8 @@ A device's position on the network now determines what it can reach, and that po
 
 ![The routed VLANs on my gateway](evidence/vlan-networks.png)
 
-*The routed VLANs on my real controller, each with its VLAN ID, name, and `/24` subnet - the segmentation this whole project is about. Real internal VLAN names and `192.168.<vlan>.x` subnets are shown as proof; the walkthrough above uses placeholder names and `10.<vlan>.0.0/24` addressing. The WAN address and ISP in the Internet panel are blacked out, and no MAC or SSID is in frame.*
+*The routed VLANs on my controller, each with its VLAN ID, name, and `/24` subnet - the segmentation this whole project is about.*
 
 ![The Proxmox-Trunk port profile on my switch](evidence/proxmox-trunk-port-profile.png)
 
-*The selective hypervisor trunk on my real controller: tagged VLANs set to Custom (the lab tiers) rather than "Allow All," so the uplink carries only the VLANs the cluster serves. This is an earlier snapshot showing a subset of those tiers. Internal VLAN names are shown as proof; the walkthrough above uses placeholder names and `10.<vlan>.0.0/24` addressing, and no WAN address, MAC, or SSID is in frame.*
+*The selective hypervisor trunk: tagged VLANs set to Custom (the lab tiers) rather than "Allow All," so the uplink carries only the VLANs the cluster serves. This is an earlier snapshot showing a subset of those tiers.*

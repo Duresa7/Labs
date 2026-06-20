@@ -1,6 +1,6 @@
 # WireGuard command reference
 
-The CLI workflow behind the Management Access server. UniFi generates the server side through its UI, but these are the underlying `wg` / `wg-quick` commands that do the same thing and that I use to reason about and verify the tunnel. Keys and addresses are placeholders; the full server config shape is in [../../configs/wireguard-server.example.conf](../../configs/wireguard-server.example.conf).
+The CLI workflow behind the Management Access server. UniFi generates the server side through its UI, but these are the underlying `wg` / `wg-quick` commands that do the same thing and that I use to reason about and verify the tunnel. The full server config shape is in [../../configs/wireguard-server.example.conf](../../configs/wireguard-server.example.conf).
 
 ## Key generation
 
@@ -36,7 +36,7 @@ wg-quick down wg0    # tear it down
 
 ```bash
 wg show wg0 latest-handshakes   # a recent handshake means the tunnel is live
-ping 10.70.0.1                  # reach the management gateway over the tunnel
+ping 192.168.70.1              # reach the management gateway over the tunnel
 ```
 
 The point is the routing, not the crypto: a connected client lands in `10.200.6.0/24`, which gateway policy ([../02-zone-based-firewall/README.md](../02-zone-based-firewall/README.md)) allows only into the management and server zones. The firewall, not the tunnel, decides what the client can reach.

@@ -49,11 +49,11 @@ These three policies are what actually implement the edge → app → management
 
 | Policy | Source | Destination | Ports | Logged |
 |---|---|---|---|---|
-| Allow DMZ to Lab-Servers | Dmz edge host (10.90.0.10) | Lab-Servers (VLAN 80) | tcp | yes |
-| Allow Lab-Servers to Wazuh | Lab-Servers | SIEM (10.70.0.20) | 1514, 1515 | |
-| Allow DMZ to Wazuh | Dmz edge host | SIEM (10.70.0.20) | 1514, 1515 | yes |
-| Allow Mgmt to DMZ monitoring | Lab-Mgmt | edge host (10.90.0.10) | 9100 | yes |
-| Allow Lab-Servers to Portainer Edge | Lab-Servers | Docker host (10.40.0.35) | 8000, 9443 | yes |
+| Allow DMZ to Lab-Servers | Dmz edge host (192.168.90.10) | Lab-Servers (VLAN 80) | tcp | yes |
+| Allow Lab-Servers to Wazuh | Lab-Servers | SIEM (192.168.70.20) | 1514, 1515 | |
+| Allow DMZ to Wazuh | Dmz edge host | SIEM (192.168.70.20) | 1514, 1515 | yes |
+| Allow Mgmt to DMZ monitoring | Lab-Mgmt | edge host (192.168.90.10) | 9100 | yes |
+| Allow Lab-Servers to Portainer Edge | Lab-Servers | Docker host (192.168.40.35) | 8000, 9443 | yes |
 
 Reading them together: the reverse proxy in the DMZ can reach the application tier, but only from the one edge host and the traffic is logged. Both the edge and the app tier ship logs up to the Wazuh SIEM on its agent ports (1514/1515). The management tier reaches back down to scrape Prometheus metrics from the edge (9100) and to talk to the Portainer edge agent. Each port number is defined once in a named firewall group (Wazuh Ports, Proxmox-Admin-Ports, Portainer Edge Agents, Identity Sync), so the policies reference intent, not magic numbers.
 
@@ -112,12 +112,12 @@ After every change I sanity-check three things: the DMZ cannot reach any interna
 
 ![The zone policy matrix on my gateway](evidence/zone-policy-matrix.png)
 
-*The Source-by-Destination zone matrix on my real gateway, the default posture every user policy sits on top of: `Untrusted` (IoT) is "Block All" toward internal zones, `DMZ` is return-only, and the rest is allowed only where a policy says so. The system zones are shown here; my custom `Lab-Mgmt` and `Lab-Servers` zones add further rows. No addresses, MACs, or SSIDs appear in this view.*
+*The Source-by-Destination zone matrix on my gateway, the default posture every user policy sits on top of: `Untrusted` (IoT) is "Block All" toward internal zones, `DMZ` is return-only, and the rest is allowed only where a policy says so. The system zones are shown here; my custom `Lab-Mgmt` and `Lab-Servers` zones add further rows.*
 
 ![The user-defined firewall policies](evidence/firewall-policy-list.png)
 
-*A slice of the user policies on the real gateway: specific allows (My PC to the servers, the `DMZ Allow List`, server end-users to the Proxmox servers), the `Block DMZ to LAN` perimeter block, the built-in DHCP/DNS/ICMP service allows, and a Valheim port-forward - each with its source and destination zone and its evaluation ID. Internal VLAN names and `192.168.x` host addresses are shown as proof; client device names are blacked out, and the walkthrough above uses placeholder names and `10.<vlan>.0.0/24` addressing.*
+*A slice of the user policies on the gateway: specific allows (My PC to the servers, the `DMZ Allow List`, server end-users to the Proxmox servers), the `Block DMZ to LAN` perimeter block, the built-in DHCP/DNS/ICMP service allows, and a Valheim port-forward - each with its source and destination zone and its evaluation ID.*
 
 ![Isolation blocks and the default inter-zone rules](evidence/firewall-isolation-and-return.png)
 
-*The block end of the rule set: the `Isolated Networks` policies that stop the IoT/Untrusted VLAN from reaching any internal zone, the `Block DMZ to Internal` perimeter block, and the default per-zone `Allow All Traffic` entries the custom policies sit on top of. Source/device names are blacked out; internal `192.168.x` addressing is shown as proof and the walkthrough uses `10.<vlan>.0.0/24` placeholders.*
+*The block end of the rule set: the `Isolated Networks` policies that stop the IoT/Untrusted VLAN from reaching any internal zone, the `Block DMZ to Internal` perimeter block, and the default per-zone `Allow All Traffic` entries the custom policies sit on top of.*

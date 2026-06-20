@@ -13,7 +13,7 @@ VLSM means allocating subnets of different sizes from one block, sized to each g
 
 ## Design 1: subnet a /24 for 30 hosts, then re-subnet for 14
 
-Starting block `172.16.10.0/24`, each subnet to hold 30 hosts; then take the fourth subnet and split it again for 14 hosts. The source worksheet used a non-home lab block; I rewrote it to this private documentation block before publishing.
+Starting block `172.16.10.0/24`, each subnet to hold 30 hosts; then take the fourth subnet and split it again for 14 hosts.
 
 30 hosts rounds to 32 addresses, a `/27` (mask 255.255.255.224):
 
@@ -35,7 +35,7 @@ The `/27` that held 30 became two `/28`s holding 14 each, with no address outsid
 
 ## Design 2: a support center, five departments from a /25
 
-Block `10.50.0.0/25` (128 addresses), split for: Customer Service 28, IT 10, Managers 8, Admin 6, Front desk 2. The raw worksheet mixed one prompt row with a different completed table, so I treated the public version as a cleaned design exercise and sized each department from the stated host requirement.
+Block `10.50.0.0/25` (128 addresses), split for: Customer Service 28, IT 10, Managers 8, Admin 6, Front desk 2. The raw worksheet mixed one prompt row with a different completed table, so I treated it as a cleaned design exercise and sized each department from the stated host requirement.
 
 Largest first:
 

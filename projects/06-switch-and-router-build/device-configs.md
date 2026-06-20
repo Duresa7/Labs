@@ -1,6 +1,6 @@
-# Sanitized Cisco device configs
+# Cisco device configs
 
-These snippets are the public version of the completed switch-and-router lab. They keep the addressing, interface roles, SSH controls, and verification commands while replacing the throwaway passwords and local username secret with placeholders.
+These snippets are the switch-and-router lab configs: addressing, interface roles, SSH controls, and verification commands.
 
 ## Router Central
 
@@ -9,8 +9,8 @@ hostname Central
 no ip domain-lookup
 ip domain-name lab.example
 service password-encryption
-enable secret <redacted>
-username netadmin privilege 15 secret <redacted>
+enable secret <secret>
+username netadmin privilege 15 secret <secret>
 banner motd #Unauthorized access is prohibited.#
 
 interface GigabitEthernet0/0/0
@@ -24,7 +24,7 @@ interface GigabitEthernet0/0/1
  no shutdown
 
 line con 0
- password <redacted>
+ password <secret>
  login
  logging synchronous
  exec-timeout 5 0
@@ -46,8 +46,8 @@ hostname S1
 no ip domain-lookup
 ip domain-name lab.example
 service password-encryption
-enable secret <redacted>
-username netadmin privilege 15 secret <redacted>
+enable secret <secret>
+username netadmin privilege 15 secret <secret>
 banner motd #Unauthorized access is prohibited.#
 
 interface FastEthernet0/6
@@ -63,7 +63,7 @@ interface range FastEthernet0/1 - 5, FastEthernet0/7 - 24, GigabitEthernet0/2
  shutdown
 
 line con 0
- password <redacted>
+ password <secret>
  login
  logging synchronous
  exec-timeout 5 0

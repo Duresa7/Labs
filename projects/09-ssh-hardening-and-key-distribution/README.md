@@ -2,7 +2,7 @@
 
 SSH is the control plane for the lab. If it accepts weak logins, every firewall rule and VLAN boundary matters less, because management access becomes the easier path. This project records how I moved the fleet toward key-only SSH, no direct root login, and repeatable key distribution from an Ansible controller.
 
-Credential files, public-key blobs, and local environment files are not part of this repository. This writeup keeps the policy, grouping, and workflow while removing the identifiers that belong only in the private staging area.
+Credential files, public-key blobs, and local environment files are not part of this repository. This writeup keeps the policy, grouping, and workflow.
 
 ## Policy
 
@@ -30,21 +30,21 @@ AllowUsers admin ansible
 
 ## Fleet structure
 
-The private SSH client map had aliases for the gateway, Proxmox management, containers, application VMs, a storage host, lab domain controllers, and a security host. I rewrote that as functional groups:
+The SSH client map has aliases for the gateway, Proxmox management, containers, application VMs, a storage host, lab domain controllers, and a security host, grouped by function:
 
-| Group | Example hosts | Placeholder addressing | Target account |
+| Group | Example hosts | Addressing | Target account |
 |---|---|---|---|
-| Management | `proxmox-node-01`, `gateway` | `10.70.0.x`, `10.1.0.x` | `admin` |
-| Container services | `docker-host-01`, `storage-host-01`, `edge-host-01` | `10.40.0.x`, `10.90.0.x` | `admin` |
-| Application VMs | `app-01`, `db-01`, `web-01` | `10.80.0.x` | `admin` |
-| Security tooling | `security-01` | `10.70.0.x` | `admin` |
-| Automation | `ansible-01` | `10.40.0.x` | `ansible` |
+| Management | `proxmox-node-01`, `gateway` | `192.168.70.x`, `192.168.1.x` | `admin` |
+| Container services | `docker-host-01`, `storage-host-01`, `edge-host-01` | `192.168.40.x`, `192.168.90.x` | `admin` |
+| Application VMs | `app-01`, `db-01`, `web-01` | `192.168.80.x` | `admin` |
+| Security tooling | `security-01` | `192.168.70.x` | `admin` |
+| Automation | `ansible-01` | `192.168.40.x` | `ansible` |
 
 That grouping matters because SSH policy is not only a daemon setting. It is also an inventory problem: I need to know which account should exist on each host, which hosts are still transitional, and which network segment the controller must reach.
 
 ## Ansible distribution pattern
 
-The Ansible report showed three inventory groups and one playbook that pushed the same two approved public keys to each target. The public version keeps the structure without copying key blobs:
+An Ansible playbook pushes the same two approved public keys to each target:
 
 ```yaml
 ---

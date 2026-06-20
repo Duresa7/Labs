@@ -16,7 +16,7 @@ flowchart LR
     R -->|"G0/0/1"| PCB
 ```
 
-PC-A sits on a switched segment; the router connects that segment to PC-B's segment and routes between the two subnets. The original lab used a common private-address teaching range for PC-A. I rewrote that segment as `10.1.10.128/25` here so the public repo does not reuse the home-range pattern reserved for approved screenshots.
+PC-A sits on a switched segment; the router connects that segment to PC-B's segment and routes between the two subnets. PC-A's segment is `10.1.10.128/25`.
 
 ## Addressing plan
 
@@ -67,7 +67,7 @@ banner motd #Unauthorized access is prohibited.#
 
 Two choices there matter. `transport input ssh` means the VTY lines accept SSH and refuse Telnet, so management credentials never cross the wire in clear text. `service password-encryption` plus `enable secret` means the running config does not carry a readable password even if someone gets a copy of it. The same baseline, written for a multi-VLAN access switch, is in [configs/switch-baseline.cfg](../../configs/switch-baseline.cfg).
 
-The lab's throwaway Cisco passwords are safe to show, but this repository still keeps them as placeholders because the useful part is the control: hashed privileged mode, encrypted line passwords, local users for VTY access, SSH version 2, and no Telnet. The project-specific sanitized snippets are in [device-configs.md](device-configs.md).
+The useful part is the control: hashed privileged mode, encrypted line passwords, local users for VTY access, SSH version 2, and no Telnet. The project-specific snippets are in [device-configs.md](device-configs.md).
 
 ## Bringing up the router
 
@@ -108,15 +108,13 @@ When the final ping succeeds and S1 has learned the expected forwarding entries,
 
 ## Evidence handling
 
-The completed Packet Tracer files stay out of the repository because they are proprietary lab binaries. The public evidence for this project should be screenshots and CLI snippets only:
+The completed Packet Tracer files stay out of the repository because they are proprietary lab binaries. The evidence for this project is screenshots and CLI snippets:
 
 - the physical topology with PC-A, S1, Central, and PC-B;
 - Central showing both routed interfaces as `up/up`;
 - S1 showing SSH-only VTY access and encrypted local credentials;
 - PC-A successfully pinging PC-B;
 - S1 showing learned dynamic MAC-table entries after the ping.
-
-Those screenshots still need the redaction pass before they are added: no personal name, no source title or number, no account banners, and no raw file names from the source folder.
 
 ## Troubleshooting when it does not
 

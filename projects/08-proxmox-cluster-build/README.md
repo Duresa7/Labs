@@ -18,9 +18,9 @@ The new nodes were empty Proxmox installs. That mattered because a node with exi
 ```mermaid
 flowchart TD
     GW["gateway<br/>management VLAN 70"]
-    G["grey-server<br/>10.70.0.10<br/>founder"]
-    P["purple-server<br/>10.70.0.11<br/>joiner"]
-    B["blue-server<br/>10.70.0.12<br/>joiner"]
+    G["grey-server<br/>192.168.70.10<br/>founder"]
+    P["purple-server<br/>192.168.70.11<br/>joiner"]
+    B["blue-server<br/>192.168.70.12<br/>joiner"]
     UI["single Proxmox Datacenter view"]
 
     GW --> G
@@ -34,7 +34,7 @@ flowchart TD
     B --> UI
 ```
 
-All three nodes sit on the management VLAN. The source material used the real management subnet; this write-up uses the placeholder `10.70.0.0/24` plan used across the repo.
+All three nodes sit on the management VLAN (`192.168.70.0/24`).
 
 ## Pre-flight checks
 
@@ -73,14 +73,14 @@ pve-firewall restart
 pve-firewall status
 ```
 
-The sanitized snippet is in [zero-access-cluster-join.fw](zero-access-cluster-join.fw). It keeps the same shape as project 05: specific accepts first, final drops last.
+The snippet is in [zero-access-cluster-join.fw](zero-access-cluster-join.fw). It keeps the same shape as project 05: specific accepts first, final drops last.
 
 ## Joining one node at a time
 
 I joined `purple-server` first:
 
 ```bash
-pvecm add 10.70.0.10 --link0 10.70.0.11 --use_ssh
+pvecm add 192.168.70.10 --link0 192.168.70.11 --use_ssh
 ```
 
 After it joined, I checked quorum before touching `blue-server`:
@@ -92,8 +92,8 @@ pvecm status
 Then I repeated the same process for `blue-server`:
 
 ```bash
-ssh -o StrictHostKeyChecking=accept-new -o BatchMode=yes root@10.70.0.10 hostname
-pvecm add 10.70.0.10 --link0 10.70.0.12 --use_ssh
+ssh -o StrictHostKeyChecking=accept-new -o BatchMode=yes root@192.168.70.10 hostname
+pvecm add 192.168.70.10 --link0 192.168.70.12 --use_ssh
 ```
 
 Adding one node at a time kept the failure domain small. If the second join had failed, I would still have known the two-node state was healthy.
@@ -135,7 +135,3 @@ The existing guests on `grey-server` stayed online during the join. That was the
 ## What this changed
 
 The management plane now has an odd number of votes and can tolerate one node being unavailable while remaining quorate. The host firewall still gates SSH and the Proxmox GUI, and the cluster join rule is scoped to the three node addresses instead of opening SSH to the management VLAN. This is the same design instinct as the rest of this repository: routing, host firewalling, and identity checks each get their own chance to say no.
-
-## Evidence status
-
-Screenshots for the cluster and firewall views are handled through Task 41 before they are copied into this repo. This project is ready for those approved images once the author reviews the redacted outputs.

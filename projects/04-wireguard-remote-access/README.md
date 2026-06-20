@@ -19,7 +19,7 @@ Four WireGuard servers run on the gateway, each terminating into its own subnet 
 
 Keeping them on separate subnets is what makes the access path controllable: a client on the Management Access tunnel lands in `10.200.6.0/24`, which the firewall treats as the `Vpn` zone, and policy decides the rest. A client on a different tunnel lands somewhere else and gets a different set of allows.
 
-A sanitized server config is in [configs/wireguard-server.example.conf](../../configs/wireguard-server.example.conf). The interesting part is not the crypto, it is the routing: the interface owns the tunnel subnet, and the peer is pinned to a single `/32` so one device cannot impersonate the whole range.
+A server config is in [configs/wireguard-server.example.conf](../../configs/wireguard-server.example.conf). The interesting part is not the crypto, it is the routing: the interface owns the tunnel subnet, and the peer is pinned to a single `/32` so one device cannot impersonate the whole range.
 
 ## The access path
 
@@ -55,4 +55,4 @@ From outside, the network presents a handful of UDP ports that perform a WireGua
 
 ![The Management Access WireGuard server on the gateway](evidence/wireguard-server-config.png)
 
-*The `Management Access` WireGuard server on the real gateway: WireGuard type, listening on UDP 51822, terminating into its own tunnel subnet with each client peer pinned to a single `/32`. The private and public keys and the public (WAN) server address are blacked out; the real internal tunnel subnet is shown as proof while the walkthrough renumbers it to `10.200.6.0/24`, and client device names are blacked out.*
+*The `Management Access` WireGuard server on the gateway: WireGuard type, listening on UDP 51822, terminating into its own tunnel subnet with each client peer pinned to a single `/32`.*

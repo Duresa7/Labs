@@ -18,7 +18,7 @@ The default `$ZoneNames` list uses documentation domains: `example.com`, `exampl
 
 ## Output
 
-By default the script writes `tools/cloudflare-audit-live.json`, which is ignored by git. TXT record content is replaced with `<redacted-or-long-text>` because TXT records often carry verification strings or mail-policy details that add little value to a public writeup.
+By default the script writes `tools/cloudflare-audit-live.json`, which is ignored by git. TXT record content is replaced with `<omitted-long-text>` because TXT records often carry verification strings or mail-policy details that add little value here.
 
 Run from the repository root:
 

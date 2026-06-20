@@ -1,6 +1,6 @@
 # Proxmox host firewall command reference
 
-How the `zero_access` security group ([../../configs/proxmox-zero-access.fw](../../configs/proxmox-zero-access.fw)) is applied and verified on the cluster with the `pve-firewall` tooling. Addresses are placeholders.
+How the `zero_access` security group ([../../configs/proxmox-zero-access.fw](../../configs/proxmox-zero-access.fw)) is applied and verified on the cluster with the `pve-firewall` tooling.
 
 ## Where the rules live
 

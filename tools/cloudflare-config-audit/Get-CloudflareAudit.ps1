@@ -68,7 +68,7 @@ foreach ($zoneName in $ZoneNames) {
           [ordered]@{
             type = $_.type
             name = $_.name
-            content = if ($_.type -in @("TXT")) { "<redacted-or-long-text>" } else { $_.content }
+            content = if ($_.type -in @("TXT")) { "<omitted-long-text>" } else { $_.content }
             proxied = $_.proxied
             ttl = $_.ttl
             priority = $_.priority

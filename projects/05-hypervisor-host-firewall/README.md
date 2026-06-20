@@ -10,7 +10,7 @@ Proxmox firewalling works in layers (datacenter, node, guest) and supports reusa
 flowchart TD
     PKT["Inbound to a node<br/>(:22 or :8006)"]
     ADMIN{"From an admin endpoint?<br/>(3 named hosts)"}
-    MON{"From the monitoring range?<br/>(10.70.0.0/24)"}
+    MON{"From the monitoring range?<br/>(192.168.70.0/24)"}
     VPN{"From the management VPN?<br/>(10.200.6.0/24)"}
     CLU{"Node-to-node cluster SSH?"}
     OK["ACCEPT"]
@@ -29,19 +29,19 @@ flowchart TD
 
 ## The rules
 
-The full sanitized group is in [configs/proxmox-zero-access.fw](../../configs/proxmox-zero-access.fw). In words:
+The full group is in [configs/proxmox-zero-access.fw](../../configs/proxmox-zero-access.fw). In words:
 
 **Administrative access** is allowed from three specific endpoints to both SSH (22) and the GUI (8006):
 
-- an automation host (10.40.0.36) that runs Ansible against the cluster;
-- my admin laptop (10.10.0.27);
-- a hardened workstation on the Secure VLAN (10.50.0.241).
+- an automation host (192.168.40.36) that runs Ansible against the cluster;
+- my admin laptop (192.168.10.27);
+- a hardened workstation on the Secure VLAN (192.168.50.241).
 
-**Monitoring** is allowed from the management VLAN (10.70.0.0/24): the Prometheus node exporter on 9100 from the whole range, and the GUI on 8006 from the management tier.
+**Monitoring** is allowed from the management VLAN (192.168.70.0/24): the Prometheus node exporter on 9100 from the whole range, and the GUI on 8006 from the management tier.
 
-**Remote administration** is allowed from the management VPN subnet (10.200.6.0/24) into both the management range (10.70.0.0/24) and the server range (10.80.0.0/24). This is the same subnet the network firewall lets into those zones, so the two policies line up.
+**Remote administration** is allowed from the management VPN subnet (10.200.6.0/24) into both the management range (192.168.70.0/24) and the server range (192.168.80.0/24). This is the same subnet the network firewall lets into those zones, so the two policies line up.
 
-**Cluster traffic** is allowed node-to-node: each of the three nodes (10.70.0.10, .11, .12) may SSH to the others, which the cluster needs for migration and replication.
+**Cluster traffic** is allowed node-to-node: each of the three nodes (192.168.70.10, .11, .12) may SSH to the others, which the cluster needs for migration and replication.
 
 **Everything else** hits the two final rules: `DROP tcp dport 22` and `DROP tcp dport 8006`. Anything that did not match an accept above is denied.
 
@@ -61,4 +61,4 @@ This is the same instinct as the network design as a whole: no single control is
 
 ![The zero_access security group on my Proxmox datacenter firewall](evidence/proxmox-datacenter-firewall.png)
 
-*The real `zero_access` group on my Proxmox datacenter firewall: the management range allowed to the GUI (8006), the two WireGuard subnet allows into the management and server ranges, and the two catch-all `DROP` rules for SSH (22) and the GUI (8006). Real internal ranges are shown as proof; the written walkthrough uses placeholder `10.x` equivalents, and no WAN address, MAC, or SSID is in frame. This snapshot is a subset of the full group in the linked config.*
+*The `zero_access` group on my Proxmox datacenter firewall: the management range allowed to the GUI (8006), the two WireGuard subnet allows into the management and server ranges, and the two catch-all `DROP` rules for SSH (22) and the GUI (8006). This snapshot is a subset of the full group in the linked config.*
