@@ -21,6 +21,7 @@ The centerpiece of the defensive side is a real incident-response record I wrote
 | [07 - Wazuh SIEM deployment](projects/defensive/07-wazuh-siem-deployment/README.md) | Single-node Wazuh build, Linux agent enrollment, and FIM/SCA/vulnerability visibility across edge and app hosts |
 | [08 - Secure WordPress hosting](projects/defensive/08-secure-wordpress-hosting/README.md) | Defense-in-depth hardening for a public WordPress host behind Cloudflare Tunnel, Caddy, WAF rules, 2FA, and backups |
 | [09 - Mobile forensics and threat analysis](projects/defensive/09-mobile-forensics-and-threat-analysis/README.md) | A mobile QR-phishing campaign mapped to MITRE ATT&CK, and a Snapchat iOS artifact-forensics methodology (timestamps, media integrity, chain of custody) |
+| [10 - OSINT domain triage and IOC reporting](projects/defensive/10-osint-domain-triage-and-ioc-reporting/README.md) | A passive VirusTotal reputation assessment of a set of domains, written up as a formal IOC report with confidence-rated findings and block/sandbox/monitor recommendations |
 
 ## Offensive
 
