@@ -50,5 +50,6 @@ Each folder is a self-contained piece of the build, written as a walkthrough of 
 | [06 - Switch and router build](projects/06-switch-and-router-build/README.md) | A from-scratch Cisco switch-and-router build: addressing, SSH hardening, MAC-table verification, and troubleshooting |
 | [07 - IPv4 addressing design](projects/07-ipv4-addressing-design/README.md) | Variable-length subnetting for three sanitized network designs, worked end to end from source worksheets |
 | [08 - Proxmox cluster build](projects/08-proxmox-cluster-build/README.md) | Expanding a single-node Proxmox install into a three-node Galaxy cluster, including SSH-based joins, host-firewall remediation, quorum checks, and stale-node cleanup |
+| [09 - SSH hardening and key distribution](projects/09-ssh-hardening-and-key-distribution/README.md) | Converging the fleet on key-only SSH, no direct root login, and Ansible-managed admin keys |
 
 Sanitized configuration artifacts (a switch baseline, a WireGuard server config, the host firewall group) live in [configs/](configs/). Reusable audit tooling lives in [tools/](tools/).
