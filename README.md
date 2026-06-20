@@ -20,6 +20,7 @@ The centerpiece of the defensive side is a real incident-response record I wrote
 | [06 - Incident case studies](projects/defensive/06-incident-case-studies/README.md) | Structured analyses of real-world breaches, mapped to the response lifecycle and to MITRE ATT&CK |
 | [07 - Wazuh SIEM deployment](projects/defensive/07-wazuh-siem-deployment/README.md) | Single-node Wazuh build, Linux agent enrollment, and FIM/SCA/vulnerability visibility across edge and app hosts |
 | [08 - Secure WordPress hosting](projects/defensive/08-secure-wordpress-hosting/README.md) | Defense-in-depth hardening for a public WordPress host behind Cloudflare Tunnel, Caddy, WAF rules, 2FA, and backups |
+| [09 - Mobile forensics and threat analysis](projects/defensive/09-mobile-forensics-and-threat-analysis/README.md) | A mobile QR-phishing campaign mapped to MITRE ATT&CK, and a Snapchat iOS artifact-forensics methodology (timestamps, media integrity, chain of custody) |
 
 ## Offensive
 
