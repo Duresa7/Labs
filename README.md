@@ -30,6 +30,7 @@ The centerpiece of the defensive side is a real incident-response record I wrote
 | [02 - Stack buffer overflow](projects/offensive/02-stack-buffer-overflow/README.md) | ASLR demonstrated, a vulnerable C program written and overflowed to a controlled crash, and the mitigations that defeat it |
 | [03 - Password cracking](projects/offensive/03-password-cracking/README.md) | A hashcat dictionary attack against a mixed set of hashes, why only some fell, and what storage choices stop it |
 | [04 - Reverse shell and post-exploitation](projects/offensive/04-reverse-shell-post-exploitation/README.md) | A connect-back shell used to read and write files on a target, why it beats a bind shell, and the egress controls that catch it |
+| [05 - Steganography: data hiding](projects/offensive/05-steganography-data-hiding/README.md) | Hiding an encrypted file inside an ordinary image with OpenStego, recovering it, and the entropy and egress controls that catch the channel |
 
 ## How the two sides connect
 
