@@ -26,6 +26,18 @@ kill <PID>        # send a signal to stop a process
 df -h             # free disk space, human-readable
 ```
 
+## Storage with LVM
+
+```bash
+sudo lsblk                              # see available disks
+sudo pvcreate /dev/sdb1 /dev/sdb2       # initialize disks as LVM physical volumes
+sudo vgcreate data /dev/sdb1 /dev/sdb2  # pool them into a volume group named "data"
+sudo lvcreate -L 1T -n art data         # carve a logical volume "art" from the group
+sudo mkfs.ext4 /dev/data/art            # put an ext4 filesystem on it
+sudo mount /dev/data/art /root/product  # mount it
+df -h                                   # confirm the mount and its size
+```
+
 ## Scheduling and time
 
 ```bash

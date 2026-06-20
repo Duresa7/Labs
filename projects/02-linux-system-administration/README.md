@@ -16,6 +16,10 @@ A process is a running program with its own PID. `ps aux` gave me the full snaps
 
 When I needed to stop something, I read its PID out of `ps` or `top` and ended it with `kill`. I also kept `df -h` in this section because checking free disk space in human-readable units is part of the same "is this box healthy" habit as checking processes.
 
+## Managing storage with LVM
+
+Checking free space is one thing; laying out the storage in the first place is another. I built a volume from scratch with the Linux Logical Volume Manager, which is what lets you pool, grow, and shrink disks without repartitioning. I initialized disks as physical volumes with `pvcreate`, pooled them into a volume group with `vgcreate`, carved a logical volume out of that group with `lvcreate`, put an ext4 filesystem on it with `mkfs`, mounted it, and confirmed the result with `df -h`. The reason to use LVM over a raw partition is that the logical volume is decoupled from the physical disk, so the storage can be resized or moved later without starting over.
+
 ## Scheduling jobs and keeping time
 
 For recurring work I used cron. `crontab -e` opens the schedule in an editor, and a line like `0 1 * * * /path/to/script.sh` runs a script every day at 1 AM. `crontab -l` lists what is currently scheduled so I could confirm the job took.
