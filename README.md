@@ -22,6 +22,7 @@ The centerpiece of the defensive side is a real incident-response record I wrote
 | [08 - Secure WordPress hosting](projects/defensive/08-secure-wordpress-hosting/README.md) | Defense-in-depth hardening for a public WordPress host behind Cloudflare Tunnel, Caddy, WAF rules, 2FA, and backups |
 | [09 - Mobile forensics and threat analysis](projects/defensive/09-mobile-forensics-and-threat-analysis/README.md) | A mobile QR-phishing campaign mapped to MITRE ATT&CK, and a Snapchat iOS artifact-forensics methodology (timestamps, media integrity, chain of custody) |
 | [10 - OSINT domain triage and IOC reporting](projects/defensive/10-osint-domain-triage-and-ioc-reporting/README.md) | A passive VirusTotal reputation assessment of a set of domains, written up as a formal IOC report with confidence-rated findings and block/sandbox/monitor recommendations |
+| [11 - Snort and Splunk detection pipeline](projects/defensive/11-snort-splunk-detection-pipeline/README.md) | A team capstone design: feeding a Snort IDS sensor into Splunk through a Universal Forwarder so raw alerts become searchable, correlated, ATT&CK-mapped triage |
 
 ## Offensive
 
