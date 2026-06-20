@@ -55,4 +55,4 @@ From outside, the network presents a handful of UDP ports that perform a WireGua
 
 ![The Management Access WireGuard server on the gateway](evidence/wireguard-server-config.png)
 
-*The `Management Access` WireGuard server on the real gateway: WireGuard type, listening on UDP 51822, terminating into its own tunnel subnet with each client peer pinned to a single `/32`. The private and public keys and the public (WAN) server address are blacked out; the tunnel subnet shown is the real `10.6.0.0/24` (the walkthrough renumbers it to `10.200.6.0/24`), and client device names are blacked out.*
+*The `Management Access` WireGuard server on the real gateway: WireGuard type, listening on UDP 51822, terminating into its own tunnel subnet with each client peer pinned to a single `/32`. The private and public keys and the public (WAN) server address are blacked out; the real internal tunnel subnet is shown as proof while the walkthrough renumbers it to `10.200.6.0/24`, and client device names are blacked out.*
