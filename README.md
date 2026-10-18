@@ -1,6 +1,6 @@
 # Labs
 
-My hands-on infrastructure and security labs, in one place. Each folder is a self-contained lab with its own write-ups and license.
+Hands-on infrastructure and security work: building, hardening, and breaking real environments, then writing up how it was done.
 
 | Lab | What's in it |
 |---|---|
@@ -10,4 +10,8 @@ My hands-on infrastructure and security labs, in one place. Each folder is a sel
 | [Hybrid Azure AD Lab](hybrid-azure-ad-lab/) | A hardened Windows Server 2025 AD forest extended into Entra ID, backed up to Azure, and attacked from Kali. |
 | [Cloud Lab](cloud-lab/) | AWS, Azure and GCP projects, from a custom VPC up to a costed game-server hosting design. |
 
-These labs were previously separate repositories; their full commit history is preserved here.
+Each lab folder has its own README with the projects, configs, and scripts behind it.
+
+## License
+
+MIT. See the `LICENSE` file in each lab folder.
