@@ -1,0 +1,16 @@
+# Secrets and local artifacts never belong in this repo
+*.env
+.env
+*.key
+*.pem
+credentials
+*.tfstate
+*.tfvars
+data.json
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
