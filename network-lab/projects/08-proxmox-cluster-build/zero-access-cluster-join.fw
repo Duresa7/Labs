@@ -1,0 +1,18 @@
+[group zero_access]
+# Excerpt from the Proxmox datacenter firewall.
+
+IN ACCEPT -source 192.168.40.36 -p tcp -dport 22,8006 -log nolog # automation host
+IN ACCEPT -source 192.168.10.27 -p tcp -dport 22,8006 -log nolog # admin laptop
+IN ACCEPT -source 192.168.50.241 -p tcp -dport 22,8006 -log nolog # hardened workstation
+IN ACCEPT -source 192.168.70.0/24 -p tcp -dport 9100 -log nolog # node exporter
+IN ACCEPT -source 192.168.70.0/24 -p tcp -dport 8006 -log nolog # management UI
+IN ACCEPT -source 10.200.6.0/24 -dest 192.168.70.0/24 -log nolog # management VPN
+IN ACCEPT -source 10.200.6.0/24 -dest 192.168.80.0/24 -log nolog # server VPN
+
+# Cluster SSH allows added for the three-node join.
+IN ACCEPT -source 192.168.70.10 -p tcp -dport 22 -log nolog # grey-server
+IN ACCEPT -source 192.168.70.11 -p tcp -dport 22 -log nolog # purple-server
+IN ACCEPT -source 192.168.70.12 -p tcp -dport 22 -log nolog # blue-server
+
+IN DROP -p tcp -dport 22 -log nolog # default-deny SSH
+IN DROP -p tcp -dport 8006 -log nolog # default-deny Proxmox GUI

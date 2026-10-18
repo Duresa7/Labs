@@ -1,0 +1,27 @@
+# Secrets and local artifacts never belong in this repo
+*.env
+.env
+*.key
+*.pem
+*_ed25519
+*_rsa
+id_*
+*.ovpn
+*.conf.local
+data.json
+tools/cloudflare-audit-live.json
+tools/cloudflare-config-audit/*.json
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Captures and binaries kept out of git
+*.pcap
+*.pcapng
+*.cap
+*.ad1
+*.zip

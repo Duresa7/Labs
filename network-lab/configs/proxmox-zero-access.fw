@@ -1,0 +1,32 @@
+# Proxmox host firewall: the "zero_access" security group.
+# Locks SSH (22) and the web GUI (8006) to a named set of sources and drops
+# both for everyone else. This is the host layer behind the network firewall;
+# see projects/05-hypervisor-host-firewall.
+#
+# Format mirrors a pve-firewall security group: direction, action, proto,
+# source, dest port(s), comment. Rule order is top-down; the two DROPs at the
+# end are the catch-all.
+
+[group zero_access] # SSH / GUI lockdown
+
+# --- Administrative access: three named endpoints, SSH + GUI ---
+IN ACCEPT -source 192.168.40.36 -p tcp -dport 22,8006 # automation host (ansible)
+IN ACCEPT -source 192.168.10.27 -p tcp -dport 22,8006 # admin laptop
+IN ACCEPT -source 192.168.50.241 -p tcp -dport 22,8006 # hardened workstation
+
+# --- Monitoring from the management VLAN ---
+IN ACCEPT -source 192.168.70.0/24 -p tcp -dport 9100 # prometheus node_exporter
+IN ACCEPT -source 192.168.70.0/24 -p tcp -dport 8006 # management-tier GUI
+
+# --- Remote administration from the management VPN ---
+IN ACCEPT -source 10.200.6.0/24 -dest 192.168.70.0/24 # WireGuard -> management range
+IN ACCEPT -source 10.200.6.0/24 -dest 192.168.80.0/24 # WireGuard -> server range
+
+# --- Cluster node-to-node SSH (migration, replication) ---
+IN ACCEPT -source 192.168.70.10 -p tcp -dport 22 # node-01
+IN ACCEPT -source 192.168.70.11 -p tcp -dport 22 # node-02
+IN ACCEPT -source 192.168.70.12 -p tcp -dport 22 # node-03
+
+# --- Catch-all: deny SSH and the GUI from anything not matched above ---
+IN DROP -p tcp -dport 22   # drop SSH
+IN DROP -p tcp -dport 8006 # drop GUI
