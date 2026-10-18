@@ -1,0 +1,33 @@
+# local.rules -- custom Snort rules I authored for the detection lab.
+# Each was tested by generating the matching attack from a Kali box and
+# confirming the alert fired on the sensor console. See ../README.md for the
+# walkthrough and ../evidence/ for the console captures of these firing.
+# $HOME_NET / $EXTERNAL_NET are snort.conf variables.
+# The two locally authored scan signatures are sid:1000006 and sid:1000010.
+# The large-ICMP rule is kept with the lab set because the ping evidence proves
+# that payload-size matching fired on the sensor.
+
+# --- Reconnaissance -------------------------------------------------------
+
+# Xmas-tree scan: FIN, PSH and URG set together is never a legitimate packet,
+# only a scanner sends it. Generated with `nmap -sX`.
+alert tcp any any -> any any (msg:"Nmap XMAS Tree Scan"; flags:FPU; sid:1000006; rev:1;)
+
+# UDP scan. Generated with `nmap -sU`.
+alert udp any any -> any any (msg:"Nmap UDP Scan"; sid:1000010; rev:1;)
+
+# --- Volumetric / abuse ---------------------------------------------------
+
+# Oversized ICMP: a normal ping is a few dozen bytes; >800 is a flood or
+# tunneling attempt. Generated with `ping -s 1400`.
+alert icmp $EXTERNAL_NET any -> $HOME_NET any (msg:"MISC Large ICMP Packet"; dsize:>800; reference:arachnids,246; classtype:bad-unknown; sid:499; rev:1;)
+
+# --- Logging (not alerting) ----------------------------------------------
+
+# Log inbound DNS from outside for later analysis rather than raising an alert.
+log udp $EXTERNAL_NET any -> $HOME_NET 53 (msg:"DNS query DoS"; classtype:attempted-dos; sid:1000004; rev:1;)
+
+# --- Host-scoped watch ----------------------------------------------------
+
+# Watch all inbound connections to a single monitored host.
+alert tcp any any -> 10.10.0.10 any (msg:"Inbound to monitored host"; sid:1000020; rev:1;)
