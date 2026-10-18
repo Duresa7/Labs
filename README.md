@@ -14,4 +14,4 @@ Each lab folder has its own README with the projects, configs, and scripts behin
 
 ## License
 
-MIT. See the `LICENSE` file in each lab folder.
+[MIT](LICENSE)

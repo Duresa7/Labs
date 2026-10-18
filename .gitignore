@@ -1,0 +1,53 @@
+# Secrets and key material
+.env
+*.env
+*.key
+*.pem
+*.pfx
+*.p12
+*_rsa
+*_ed25519
+id_*
+authorized_keys
+known_hosts
+credentials
+data.json
+*.ovpn
+*.conf.local
+*-odj.txt
+*.odj
+
+# Terraform state and variables
+*.tfstate
+*.tfvars
+
+# Packet captures, forensic images, and evidence binaries
+*.pcap
+*.pcapng
+*.cap
+*.hccapx
+*.22000
+*.evtx
+*.dat
+*.ad1
+*.E01
+*.zip
+
+# Live audit output
+network-lab/tools/cloudflare-audit-live.json
+network-lab/tools/cloudflare-config-audit/*.json
+
+# Scratch and extraction work
+_extract_tmp/
+*.tmp
+
+# Python
+__pycache__/
+*.pyc
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
